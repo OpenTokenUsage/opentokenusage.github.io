@@ -6,7 +6,7 @@
 - Install: `winget install PowerUserZ.OpenTokenUsage`, or the installer from GitHub Releases. The app updates itself.
 - Price: free. No account, no telemetry; logins stay on the PC.
 - How it works: it reuses the login of each tool you already use (for example Claude Code or the Codex CLI) and asks that provider for your usage. No API keys to paste for Claude or Codex.
-- Providers: Claude, Codex, Cursor, GitHub Copilot, Antigravity, Amp, Devin, Factory (Droid), Grok, JetBrains AI Assistant, Kimi Code, Kiro, MiniMax, OpenCode Go, Synthetic, Z.ai.
+- Providers: Claude, Codex, GitHub Copilot, Cursor, Antigravity, JetBrains AI Assistant, Devin, Kiro, OpenCode Go, Z.ai, Kimi Code, Factory (Droid), MiniMax, Grok, Amp, Synthetic.
 - Shows: used percent, reset time, pace (ahead or behind an even pace), and when you'll run out at the current rate.
 - Alerts: Windows notifications at chosen usage levels (80% and 95% by default), pace warnings and resets, with built-in or custom sounds.
 - Tray: app icon, percent, bars, or one number or logo ring per provider; an experimental taskbar strip shows session and weekly numbers inside the taskbar.
