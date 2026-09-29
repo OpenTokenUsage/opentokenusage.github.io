@@ -9,7 +9,7 @@ The app itself, its releases and its issues live in [PowerUserZ/OpenTokenUsage](
 Plain HTML, CSS and JavaScript. No build step, no frameworks, no web fonts.
 
 - `index.html`, `404.html`
-- `assets/site.css`, `assets/site.js`
+- `assets/site.css`, `assets/site.js`: bump the `?v=` on their links in `index.html` and `404.html` whenever you change them (GitHub Pages lets browsers cache for 10 minutes, so new HTML could meet old CSS/JS)
 - `assets/*.webp`: crops of the screenshots in the app repo's `docs/images/`
 - `assets/og.png`: the 1200x630 share image, a screenshot of a page built from the site's own hero
 - `assets/logo.svg`, `assets/icon.png`: the app logo from `src-tauri/icons/`
