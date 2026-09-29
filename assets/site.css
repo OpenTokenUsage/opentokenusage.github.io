@@ -299,6 +299,22 @@ main section:not(.hero) { padding-top: var(--section); }
 .site-footer nav a { text-decoration: none; }
 .site-footer nav a:hover { text-decoration: underline; }
 .site-footer p + p { margin-top: 6px; }
+button.link { padding: 0; border: 0; background: none; color: inherit; font: inherit; text-decoration: underline; cursor: pointer; }
+
+/* Analytics question, shaped like a Windows 11 notification */
+
+.consent {
+  position: fixed; z-index: 10; left: var(--g); right: var(--g); bottom: var(--g);
+  display: grid; gap: 12px; padding: 16px;
+  background: var(--surface); border: 1px solid var(--frame); border-radius: 8px;
+  box-shadow: 0 8px 32px rgb(0 0 0 / 0.4);
+  font-size: 0.9375rem; line-height: 1.45;
+}
+.consent[hidden] { display: none; }
+.consent-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+@media (min-width: 480px) {
+  .consent { left: auto; width: 364px; }
+}
 
 /* 404 */
 

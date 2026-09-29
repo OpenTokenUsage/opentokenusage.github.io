@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; connect-src https://api.github.com; script-src 'self'; style-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com; connect-src https://api.github.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; script-src 'self' https://www.googletagmanager.com; style-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Claude Code &amp; Codex usage tracker for Windows | OpenTokenUsage</title>
 <meta name="description" content="Free, open-source Windows 11 tray app for Claude Code, Codex, Cursor, Copilot and 12 more AI coding tools: session and weekly limits, resets, pace and alerts.">
@@ -380,8 +380,16 @@
     </div>
     <p>Made by <a href="https://github.com/PowerUserZ">PowerUserZ</a>. Built on <a href="https://github.com/robinebers/openusage">OpenUsage</a> by Robin Ebers (MIT), rebuilt for Windows. Inspired by <a href="https://github.com/steipete/CodexBar">CodexBar</a>.</p>
     <p>OpenTokenUsage is not affiliated with OpenUsage, Microsoft, Anthropic, OpenAI or the other providers. Their names and logos belong to their owners.</p>
-    <p>This site sets no cookies and loads nothing from third parties except the version number from GitHub.</p>
+    <p>This site loads Google Analytics only if you allow it<span data-consent-open hidden> (<button type="button" class="link">change</button>)</span>. Otherwise it sets no cookies and contacts only GitHub, for the version number. The app itself sends no analytics.</p>
   </div>
 </footer>
+
+<div class="consent" role="region" aria-labelledby="consent-text" hidden>
+  <p id="consent-text">Can this site count your visit with Google Analytics? It sets cookies. The app itself never sends analytics.</p>
+  <div class="consent-actions">
+    <button type="button" class="btn-accent" data-consent="granted">Allow</button>
+    <button type="button" class="btn" data-consent="denied">Decline</button>
+  </div>
+</div>
 </body>
 </html>

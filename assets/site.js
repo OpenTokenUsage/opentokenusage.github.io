@@ -14,6 +14,7 @@ for (const btn of document.querySelectorAll("[data-copy]")) {
     let ok = true;
     try { await navigator.clipboard.writeText(btn.dataset.copy); } catch { ok = false; }
     if (!ok && code) getSelection().selectAllChildren(code);
+    track("copy_install_command");
     if (ok) show("Copied", "Copied");
     else show("Press Ctrl+C", "Press Ctrl+C to copy the winget command");
     say(ok ? "Command copied." : "Command selected. Press Ctrl+C to copy it.");
@@ -67,4 +68,56 @@ if (strip && panel) {
     const closed = panel.classList.toggle("is-closed");
     strip.setAttribute("aria-expanded", String(!closed));
   });
+}
+
+// 5. Google Analytics, loaded only after the visitor allows it (Consent Mode v2, basic).
+// A Global Privacy Control signal counts as "no" and the question isn't asked.
+const GA_ID = "G-J1CQKCWK6E";
+const CONSENT_KEY = "analytics-consent"; // "granted" | "denied"
+function track(name) { if (window.gtag) window.gtag("event", name); }
+function startAnalytics() {
+  if (window.gtag) return;
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = function () { window.dataLayer.push(arguments); }; // gtag.js expects the arguments object
+  window.gtag("consent", "default", {
+    analytics_storage: "granted", ad_storage: "denied", ad_user_data: "denied", ad_personalization: "denied",
+  });
+  window.gtag("js", new Date());
+  window.gtag("config", GA_ID, { allow_google_signals: false, allow_ad_personalization_signals: false });
+  const s = document.createElement("script");
+  s.async = true;
+  s.src = "https://www.googletagmanager.com/gtag/js?id=" + GA_ID;
+  document.head.append(s);
+}
+function stopAnalytics() {
+  if (window.gtag) window.gtag("consent", "update", { analytics_storage: "denied" });
+  // GA sets _ga and _ga_<id> on the site's domain; the tag itself is gone on the next page load.
+  for (const c of document.cookie.split(";")) {
+    const name = c.split("=")[0].trim();
+    if (name !== "_ga" && !name.startsWith("_ga_")) continue;
+    document.cookie = name + "=; Max-Age=0; path=/";
+    document.cookie = name + "=; Max-Age=0; path=/; domain=." + location.hostname;
+  }
+}
+const consent = document.querySelector(".consent");
+if (consent && !navigator.globalPrivacyControl) {
+  let choice = null;
+  try { choice = localStorage.getItem(CONSENT_KEY); } catch {}
+  if (choice === "granted") startAnalytics();
+  else if (choice !== "denied") consent.hidden = false;
+  for (const btn of consent.querySelectorAll("[data-consent]")) {
+    btn.addEventListener("click", () => {
+      const value = btn.dataset.consent;
+      try { localStorage.setItem(CONSENT_KEY, value); } catch {}
+      consent.hidden = true;
+      if (value === "granted") startAnalytics(); else stopAnalytics();
+    });
+  }
+  for (const open of document.querySelectorAll("[data-consent-open]")) {
+    open.hidden = false;
+    open.querySelector("button").addEventListener("click", () => {
+      consent.hidden = false;
+      consent.querySelector("button").focus();
+    });
+  }
 }
