@@ -10,6 +10,7 @@
 <link rel="canonical" href="https://opentokenusage.app/">
 <meta name="color-scheme" content="dark">
 <meta name="theme-color" content="#000000">
+<script src="assets/theme.js?v=1"></script>
 <link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" href="/assets/logo.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -30,7 +31,7 @@
 <meta name="twitter:description" content="Free Windows 11 tray app that shows your Claude Code, Codex, Cursor, Copilot and 12 more AI coding limits: session and weekly usage, resets and pace. Open source.">
 <meta name="twitter:image" content="https://opentokenusage.app/assets/og.png">
 <meta name="twitter:image:alt" content="“Every AI coding limit, next to your clock.” The OpenTokenUsage panel above the Windows taskbar, with Claude, Codex and Cursor usage next to the clock">
-<link rel="stylesheet" href="assets/site.css?v=3">
+<link rel="stylesheet" href="assets/site.css?v=4">
 <script src="assets/site.js?v=2" defer></script>
 <script type="application/ld+json">
 {
@@ -195,7 +196,10 @@
 <body>
 <header class="site-header wrap">
   <span class="brand"><img src="assets/logo.svg" width="24" height="24" alt="">OpenTokenUsage</span>
-  <a class="plain" href="https://github.com/PowerUserZ/OpenTokenUsage">GitHub</a>
+  <div class="header-actions">
+    <a class="plain" href="https://github.com/PowerUserZ/OpenTokenUsage">GitHub</a>
+    <button type="button" class="theme-toggle" data-theme-toggle hidden><svg class="i-sun" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="8" cy="8" r="3"/><path d="M8 1v1.5M8 13.5V15M1 8h1.5M13.5 8H15M3.05 3.05l1.06 1.06M11.89 11.89l1.06 1.06M3.05 12.95l1.06-1.06M11.89 4.11l1.06-1.06"/></svg><svg class="i-moon" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M13.5 9.6A5.75 5.75 0 0 1 6.4 2.5a5.75 5.75 0 1 0 7.1 7.1z"/></svg></button>
+  </div>
 </header>
 
 <main>
@@ -215,7 +219,8 @@
       <p class="meta">Version <span data-version>0.7.1</span> for Windows 11. Free, open source (MIT), and keeps itself up to date.</p>
     </div>
     <figure id="panel" class="flyout">
-      <img src="assets/panel-dark.webp" width="396" height="561" fetchpriority="high" decoding="async" alt="The OpenTokenUsage panel. Claude Max 5x: session 34% used, resets in 2h 13m; weekly 58% used, 3% in deficit, runs out in 2d 18h. Codex: 12% and 41%. Cursor: 62% of total usage.">
+      <img class="for-dark" src="assets/panel-dark.webp" width="396" height="561" fetchpriority="high" decoding="async" alt="The OpenTokenUsage panel. Claude Max 5x: session 34% used, resets in 2h 13m; weekly 58% used, 3% in deficit, runs out in 2d 18h. Codex: 12% and 41%. Cursor: 62% of total usage.">
+      <img class="for-light" src="assets/panel-light.webp" width="396" height="561" loading="lazy" decoding="async" alt="The OpenTokenUsage panel. Claude Max 5x: session 34% used, resets in 2h 13m; weekly 58% used, 3% in deficit, runs out in 2d 18h. Codex: 12% and 41%. Cursor: 62% of total usage.">
     </figure>
   </div>
 
