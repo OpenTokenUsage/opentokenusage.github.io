@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; connect-src https://api.github.com; script-src 'self'; style-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OpenTokenUsage: every AI coding limit, next to your clock</title>
+<meta name="description" content="Free Windows 11 tray app that shows your AI coding limits for Claude, Codex, Cursor and 13 other tools: session and weekly usage, resets and pace. Open source.">
+<link rel="canonical" href="https://opentokenusage.github.io/">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#F3F3F3" media="(prefers-color-scheme: light)">
+<link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+<link rel="icon" href="assets/icon.png" type="image/png" sizes="512x512">
+<link rel="apple-touch-icon" href="assets/icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="OpenTokenUsage">
+<meta property="og:url" content="https://opentokenusage.github.io/">
+<meta property="og:title" content="OpenTokenUsage: every AI coding limit, next to your clock">
+<meta property="og:description" content="Free Windows 11 tray app that shows your AI coding limits for Claude, Codex, Cursor and 13 other tools: session and weekly usage, resets and pace. Open source.">
+<meta property="og:image" content="https://opentokenusage.github.io/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="“Every AI coding limit, next to your clock.” The OpenTokenUsage panel above the Windows taskbar, with Claude, Codex and Cursor usage next to the clock">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="OpenTokenUsage: every AI coding limit, next to your clock">
+<meta name="twitter:description" content="Free Windows 11 tray app that shows your AI coding limits for Claude, Codex, Cursor and 13 other tools: session and weekly usage, resets and pace. Open source.">
+<meta name="twitter:image" content="https://opentokenusage.github.io/assets/og.png">
+<meta name="twitter:image:alt" content="“Every AI coding limit, next to your clock.” The OpenTokenUsage panel above the Windows taskbar, with Claude, Codex and Cursor usage next to the clock">
+<link rel="stylesheet" href="assets/site.css">
+<script src="assets/site.js" defer></script>
+</head>
+<body>
+<header class="site-header wrap">
+  <span class="brand"><img src="assets/logo.svg" width="24" height="24" alt="">OpenTokenUsage</span>
+  <a class="plain" href="https://github.com/PowerUserZ/OpenTokenUsage">GitHub</a>
+</header>
+
+<main>
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero-top">
+    <div class="hero-copy">
+      <h1 id="hero-title">Every AI coding limit, next to your clock.</h1>
+      <p class="sub">A free Windows 11 tray app that shows how much of Claude, Codex, Cursor and 13 other subscriptions you've used: session and weekly limits, credits, when they reset, and whether you're on pace.</p>
+      <div class="install">
+        <code class="cmd">winget install <wbr>PowerUserZ.<wbr>OpenTokenUsage</code>
+        <button type="button" class="btn-accent" data-copy="winget install PowerUserZ.OpenTokenUsage" aria-label="Copy the winget command" hidden>Copy</button>
+      </div>
+      <p class="actions">
+        <a class="btn" href="https://github.com/PowerUserZ/OpenTokenUsage/releases/latest" data-installer>Download the installer</a>
+        <a href="https://github.com/PowerUserZ/OpenTokenUsage">Source on GitHub</a>
+      </p>
+      <p class="meta">Version <span data-version>0.7.1</span> for Windows 11. Free, open source (MIT), and keeps itself up to date.</p>
+    </div>
+    <figure id="panel" class="flyout">
+      <picture>
+        <source srcset="assets/panel-light.webp" media="(prefers-color-scheme: light)" width="396" height="561">
+        <img src="assets/panel-dark.webp" width="396" height="561" fetchpriority="high" decoding="async" alt="The OpenTokenUsage panel. Claude Max 5x: session 34% used, resets in 2h 13m; weekly 58% used, 3% in deficit, runs out in 2d 18h. Codex: 12% and 41%. Cursor: 62% of total usage.">
+      </picture>
+    </figure>
+  </div>
+
+  <div class="taskbar" role="group" aria-label="Example Windows taskbar">
+    <svg class="tb-apps" width="216" height="24" viewBox="0 0 216 24" fill="currentColor" aria-hidden="true"><path d="M1 1h10.5v10.5H1zM12.5 1H23v10.5H12.5zM1 12.5h10.5V23H1zM12.5 12.5H23V23H12.5z"/><circle cx="58.5" cy="10.5" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="m63.5 15.5 5.5 5.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><rect x="97" y="1" width="22" height="22" rx="5" fill-opacity="0.45"/><rect x="145" y="1" width="22" height="22" rx="5" fill-opacity="0.45"/><rect x="193" y="1" width="22" height="22" rx="5" fill-opacity="0.45"/></svg>
+    <button type="button" class="strip" aria-expanded="true" aria-controls="panel" aria-label="Example strip: Claude 34% and 58%, Codex 12% and 41%, Cursor 62%. Shows or hides the panel.">
+      <span class="si d1"><span class="pi p-claude"></span><span class="nums"><span class="u34">34%</span><span class="u58">58%</span></span></span>
+      <span class="si d2"><span class="pi p-codex"></span><span class="nums"><span class="u12">12%</span><span class="u41">41%</span></span></span>
+      <span class="si d3"><span class="pi p-cursor"></span><span class="nums"><span class="u62">62%</span></span></span>
+    </button>
+    <span class="ti chev"><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M2.65 10.35 8 5l5.35 5.35-.7.7L8 6.41l-4.65 4.64z"/></svg></span>
+    <span class="ti"><img src="assets/logo.svg" width="16" height="16" alt=""></span>
+    <span class="ti sys">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><circle cx="8" cy="12.6" r="1.2"/><path d="M5.17 10.17a4 4 0 0 1 5.66 0l-.85.85a2.8 2.8 0 0 0-3.96 0zM3.05 8.05a7 7 0 0 1 9.9 0l-.85.85a5.8 5.8 0 0 0-8.2 0zM.93 5.93a10 10 0 0 1 14.14 0l-.85.85a8.8 8.8 0 0 0-12.44 0z"/></svg>
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M1.5 6H4l3.5-3v10L4 10H1.5zM9.76 5.74a3.2 3.2 0 0 1 0 4.52l-.78-.78a2.1 2.1 0 0 0 0-2.96zM11.74 3.76a6 6 0 0 1 0 8.48l-.78-.78a4.9 4.9 0 0 0 0-6.92z"/></svg>
+    </span>
+    <span class="clock"><time aria-hidden="true" datetime="14:05">2:05 PM</time><time aria-hidden="true" datetime="2026-09-28">9/28/2026</time></span>
+  </div>
+</section>
+
+<section id="glance" class="wrap" aria-labelledby="glance-title">
+  <h2 id="glance-title"><span class="sent">The top number is your session.</span> <span class="sent">The bottom one is your week.</span></h2>
+  <p class="intro">Turn on the taskbar strip (experimental) in Settings and each provider you pick gets a logo and two numbers. Open the panel for the rest.</p>
+  <div class="anatomy">
+    <div class="slab" role="img" aria-label="Claude in the taskbar strip: 34% of the session limit and 58% of the weekly limit used">
+      <span class="si big"><span class="pi p-claude"></span><span class="nums"><span class="u34">34%</span><span class="u58">58%</span></span></span>
+    </div>
+    <dl class="defs">
+      <div><dt>Top number</dt><dd>The session limit, the one that resets every few hours.</dd></div>
+      <div><dt>Bottom number</dt><dd>The weekly limit.</dd></div>
+      <div><dt>Color</dt><dd>Starts in the taskbar's text color and warms up to yellow, orange and red as you use more.</dd></div>
+      <div><dt>Logo</dt><dd>Which provider. Up to 6, in the order you choose.</dd></div>
+    </dl>
+  </div>
+
+  <div class="groups">
+  <div>
+  <h3>On every limit</h3>
+  <ul class="rows">
+    <li><div><p class="rt">Used</p><p class="rd">How much of the limit is gone.</p></div><span class="val">34%</span></li>
+    <li><div><p class="rt">Resets</p><p class="rd">When the limit starts over.</p></div><span class="val">in 2h 13m</span></li>
+    <li><div><p class="rt">Pace</p><p class="rd">Whether you're ahead of or behind an even pace to the reset.</p></div><span class="val">3% in deficit</span></li>
+    <li><div><p class="rt">Runs out</p><p class="rd">When you'll hit the limit at this rate.</p></div><span class="val">in 2d 18h</span></li>
+  </ul>
+  </div>
+  <div>
+  <h3>When it speaks up</h3>
+  <ul class="rows">
+    <li><div><p class="rt">Usage levels</p><p class="rd">A notification at the levels you pick, once per limit until it resets.</p></div><span class="val">80% and 95% by default</span></li>
+    <li><div><p class="rt">Pace and resets</p><p class="rd">When you're on pace to run out before a reset, and when a limit you'd nearly used up resets.</p></div></li>
+    <li><div><p class="rt">Sounds</p><p class="rd">Windows' default, eight built-in sounds or your own file. Quiet during Do&nbsp;Not&nbsp;Disturb.</p></div></li>
+    <li><div><p class="rt">One-click fixes</p><p class="rd">Errors come with the fix: run the login command in a terminal, or open the provider's API key page and Windows' Environment Variables.</p></div></li>
+    <li><div><p class="rt">Service status</p><p class="rd">A badge on the card when the provider's status page reports an incident (for providers with a public status page).</p></div></li>
+  </ul>
+  </div>
+  </div>
+</section>
+
+<section id="yours" class="wrap" aria-labelledby="yours-title">
+  <div class="yours-grid">
+    <div>
+      <h2 id="yours-title">Make the taskbar yours</h2>
+      <p class="intro">Pick what sits next to the clock in Settings. The taskbar strip is experimental: Windows has no official place for it, so a Windows update may move or hide it.</p>
+      <ul class="rows">
+        <li><div><p class="rt">Tray icon</p><p class="rd">The app icon, a percent, bars, or one number or logo ring per provider.</p></div></li>
+        <li><div><p class="rt">Taskbar strip</p><p class="rd">Logos with session and weekly numbers inside the taskbar, in your fonts, sizes, colors and order.</p></div><span class="val">Up to 6</span></li>
+        <li><div><p class="rt">The panel</p><p class="rd">Open it from the tray, the strip or a global shortcut. Pin it above other windows, or turn on Remember position and it opens wherever you drag it.</p></div></li>
+      </ul>
+    </div>
+    <img class="shot" src="assets/strip-styles.webp" width="468" height="369" loading="lazy" decoding="async" alt="The taskbar strip in four looks: the heat scale; traffic light colors in Cascadia Mono; cool colors in Bahnschrift; plain session numbers. Below them, the alternative: one tray icon per provider, each logo inside a usage ring.">
+  </div>
+</section>
+
+<section id="providers" class="wrap" aria-labelledby="providers-title">
+  <h2 id="providers-title">Works with 16 providers</h2>
+  <p class="intro">Each provider is a small plugin, so adding one is easy. New providers arrive with app updates.</p>
+  <ul class="providers">
+    <li><span class="pi p-amp"></span><div><p class="pn">Amp</p><p class="pt">Free tier, bonus, credits</p></div></li>
+    <li><span class="pi p-antigravity"></span><div><p class="pn">Antigravity</p><p class="pt">Gemini and Claude models, session and weekly</p></div></li>
+    <li><span class="pi p-claude"></span><div><p class="pn">Claude</p><p class="pt">Session, weekly, Fable, extra usage, rate limit resets, local token usage (ccusage)</p></div></li>
+    <li><span class="pi p-codex"></span><div><p class="pn">Codex</p><p class="pt">Session, weekly, reviews, credits</p></div></li>
+    <li><span class="pi p-copilot"></span><div><p class="pn">Copilot</p><p class="pt">Credits, extra usage, chat, completions</p></div></li>
+    <li><span class="pi p-cursor"></span><div><p class="pn">Cursor</p><p class="pt">Credits, total usage, requests, auto usage, API usage, Grok Bot, on-demand, bonus spend</p></div></li>
+    <li><span class="pi p-devin"></span><div><p class="pn">Devin</p><p class="pt">Weekly and daily quota, extra usage</p></div></li>
+    <li><span class="pi p-factory"></span><div><p class="pn">Factory / Droid</p><p class="pt">Standard, premium tokens</p></div></li>
+    <li><span class="pi p-grok"></span><div><p class="pn">Grok</p><p class="pt">Weekly limit, credits used, pay-as-you-go cap</p></div></li>
+    <li><span class="pi p-jetbrains-ai-assistant"></span><div><p class="pn">JetBrains AI Assistant</p><p class="pt">Quota, remaining</p></div></li>
+    <li><span class="pi p-kimi"></span><div><p class="pn">Kimi Code</p><p class="pt">Session, weekly</p></div></li>
+    <li><span class="pi p-kiro"></span><div><p class="pn">Kiro</p><p class="pt">Credits, bonus credits, overages</p></div></li>
+    <li><span class="pi p-minimax"></span><div><p class="pn">MiniMax</p><p class="pt">Coding plan session</p></div></li>
+    <li><span class="pi p-opencode-go"></span><div><p class="pn">OpenCode Go</p><p class="pt">5-hour, weekly and monthly limits</p></div></li>
+    <li><span class="pi p-synthetic"></span><div><p class="pn">Synthetic</p><p class="pt">5-hour rate limit, subscription, tool calls, search</p></div></li>
+    <li><span class="pi p-zai"></span><div><p class="pn">Z.ai</p><p class="pt">Session, weekly, web searches</p></div></li>
+  </ul>
+  <p class="more">Missing one? Write a plugin with the <a href="https://github.com/PowerUserZ/OpenTokenUsage/blob/main/docs/plugins/api.md">Plugin API</a> and open a pull request.</p>
+  <p class="fine">Not affiliated with any of these providers. Names and logos belong to their owners.</p>
+</section>
+
+<div class="pair wrap">
+<section id="windows" aria-labelledby="windows-title">
+  <h2 id="windows-title">At home on Windows 11</h2>
+  <ul class="rows flat">
+    <li><div><p class="rt">Mica and your accent color</p><p class="rd">The panel takes Windows' backdrop and your accent color.</p></div></li>
+    <li><div><p class="rt">Dark and light</p><p class="rd">A pure black dark theme and a light one.</p></div></li>
+    <li><div><p class="rt">11 languages</p><p class="rd">English, <span lang="de">Deutsch</span>, <span lang="es">Español</span> (<span lang="es">España</span> and <span lang="es">Latinoamérica</span>), <span lang="fr">Français</span>, <span lang="it">Italiano</span>, <span lang="ja">日本語</span>, <span lang="ko">한국어</span>, <span lang="pt-BR">Português (Brasil)</span>, <span lang="tr">Türkçe</span> and <span lang="zh-Hans">简体中文</span>.</p></div></li>
+    <li><div><p class="rt">Follows the taskbar</p><p class="rd">Tray icons and the strip switch between light and dark the moment the taskbar does.</p></div></li>
+  </ul>
+</section>
+
+<section id="privacy" aria-labelledby="privacy-title">
+  <h2 id="privacy-title">Your usage stays on your PC</h2>
+  <ul class="rows flat">
+    <li><div><p class="rt">No telemetry</p><p class="rd">The app sends no analytics. Usage goes from each provider to your PC and nowhere else. Besides the providers you turn on, it contacts only their status pages, and GitHub for updates.</p></div></li>
+    <li><div><p class="rt">Local HTTP API</p><p class="rd">On by default: other apps on your PC can <a href="https://github.com/PowerUserZ/OpenTokenUsage/blob/main/docs/local-http-api.md">read your usage</a>. Loopback only; browsers are refused.</p></div><span class="val">127.0.0.1:6736</span></li>
+    <li><div><p class="rt">Proxy</p><p class="rd">Route provider requests through a SOCKS5 or HTTP proxy, set in a <a href="https://github.com/PowerUserZ/OpenTokenUsage/blob/main/docs/proxy.md">config file</a>.</p></div></li>
+    <li><div><p class="rt">Updates</p><p class="rd">Checks for new releases every 6 hours and downloads them. Installs when you click Restart to update.</p></div></li>
+    <li><div><p class="rt">Open source</p><p class="rd">MIT licensed. Every line is <a href="https://github.com/PowerUserZ/OpenTokenUsage">on GitHub</a>.</p></div></li>
+  </ul>
+</section>
+</div>
+
+<section id="install" class="wrap" aria-labelledby="install-title">
+  <h2 id="install-title">Install it in one line</h2>
+  <p class="intro">Paste this into Windows Terminal:</p>
+  <div class="install">
+    <code class="cmd">winget install <wbr>PowerUserZ.<wbr>OpenTokenUsage</code>
+    <button type="button" class="btn-accent" data-copy="winget install PowerUserZ.OpenTokenUsage" aria-label="Copy the winget command" hidden>Copy</button>
+  </div>
+  <p class="after">Or <a href="https://github.com/PowerUserZ/OpenTokenUsage/releases/latest" data-installer>download the installer</a> and run it. Either way, the app keeps itself up to date.</p>
+</section>
+
+<p class="sr-only" role="status"></p>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-row">
+      <span class="brand"><img src="assets/logo.svg" width="16" height="16" alt="">OpenTokenUsage</span>
+      <nav aria-label="Project">
+        <a href="https://github.com/PowerUserZ/OpenTokenUsage">Source</a>
+        <a href="https://github.com/PowerUserZ/OpenTokenUsage/releases">Releases</a>
+        <a href="https://github.com/PowerUserZ/OpenTokenUsage/blob/main/LICENSE">License</a>
+        <a href="https://github.com/PowerUserZ/OpenTokenUsage/issues">Report an issue</a>
+      </nav>
+    </div>
+    <p>Made by <a href="https://github.com/PowerUserZ">PowerUserZ</a>. Built on <a href="https://github.com/robinebers/openusage">OpenUsage</a> by Robin Ebers (MIT), rebuilt for Windows. Inspired by <a href="https://github.com/steipete/CodexBar">CodexBar</a>.</p>
+    <p>OpenTokenUsage is not affiliated with OpenUsage, Microsoft, Anthropic, OpenAI or the other providers. Their names and logos belong to their owners.</p>
+    <p>This site sets no cookies and loads nothing from third parties except the version number from GitHub.</p>
+  </div>
+</footer>
+</body>
+</html>

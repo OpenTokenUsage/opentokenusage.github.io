@@ -1,0 +1,368 @@
+/* OpenTokenUsage site. Dark (pure black) is the default; light follows the system. */
+
+:root {
+  --bg: #000000;
+  --surface: #0B0B0B;
+  --surface-2: #1A1A1A;
+  --text: #FFFFFF;
+  --muted: #C5C5C5;
+  --line: #262626;
+  --frame: #3D3D3D;
+  --accent: #2D9CFF;
+  --on-accent: #000000;
+  --taskbar: #1C1C1C;
+  --tb-hover: #2B2B2B;
+  --tb-line: #262626;
+
+  /* The app's heat scale at these usage levels */
+  --u12: #FEF1C1;
+  --u34: #FBD84E;
+  --u41: #FAD12A;
+  --u58: #FAB326;
+  --u62: #FBAB2B;
+  --u100: #F87171;
+
+  --f-display: "Segoe UI Variable Display", "Segoe UI", system-ui, sans-serif;
+  --f-text: "Segoe UI Variable Text", "Segoe UI", system-ui, sans-serif;
+  --f-small: "Segoe UI Variable Small", "Segoe UI", system-ui, sans-serif;
+  --f-code: "Cascadia Code", "Cascadia Mono", Consolas, monospace;
+
+  --g: 16px;
+  --section: 48px;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #F3F3F3;
+    --surface: #FFFFFF;
+    --surface-2: #F9F9F9;
+    --text: #1A1A1A;
+    --muted: #5D5D5D;
+    --line: #E0E0E0;
+    --frame: #CFCFCF;
+    --accent: #0058C8;
+    --on-accent: #FFFFFF;
+    --taskbar: #E4E4E4; /* dark enough to stand apart from the #F3F3F3 page */
+    --tb-hover: #F9F9F9; /* lighter, like a Windows 11 light taskbar */
+    --tb-line: #CFCFCF;
+
+    /* Darkened to 4.5:1 on the light taskbar (#E4E4E4) */
+    --u12: #1A1A1A;
+    --u34: #756524;
+    --u41: #786514;
+    --u58: #855F14;
+    --u62: #895D18;
+    --u100: #B91C1C;
+  }
+}
+
+/* Base */
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 400 1.0625rem/1.55 var(--f-text);
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3, p, ul, dl, dd, figure { margin: 0; }
+p, dd { text-wrap: pretty; }
+img { display: block; max-width: 100%; height: auto; }
+a { color: var(--accent); text-decoration: underline; text-underline-offset: 0.15em; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--text); outline-offset: 2px; }
+.sr-only {
+  position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+.wrap { max-width: calc(1120px + 2 * var(--g)); margin-inline: auto; padding-inline: var(--g); }
+
+/* Header */
+
+.site-header { display: flex; align-items: center; justify-content: space-between; height: 56px; }
+.brand { display: flex; align-items: center; gap: 8px; font-weight: 600; font-size: 1rem; }
+a.plain { color: var(--text); text-decoration: none; font-size: 0.9375rem; font-weight: 600; }
+a.plain:hover { text-decoration: underline; }
+
+/* Type */
+
+h1 {
+  font: 600 clamp(2.5rem, 1.6rem + 3.6vw, 4rem)/1.05 var(--f-display);
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+  max-width: 12em; /* always two lines on wide screens */
+}
+h2 {
+  font: 600 clamp(1.625rem, 1.2rem + 1.4vw, 2.125rem)/1.2 var(--f-display);
+  text-wrap: balance;
+  max-width: 40rem;
+}
+h2 .sent { display: inline-block; } /* each sentence stays whole */
+h3 { font: 600 0.875rem/1.4 var(--f-text); margin: 40px 0 12px; }
+[lang="ja"], [lang="ko"], [lang="zh-Hans"] { white-space: nowrap; }
+.intro, .after, .more { margin-top: 12px; max-width: 62ch; }
+.intro { color: var(--muted); }
+
+/* Buttons */
+
+.btn, .btn-accent {
+  display: inline-flex; align-items: center; justify-content: center;
+  height: 32px; padding: 0 16px;
+  border: 1px solid transparent; border-radius: 4px;
+  font: 600 14px/1 var(--f-text);
+  text-decoration: none; cursor: pointer; white-space: nowrap;
+  transition: background-color 83ms linear;
+}
+.btn-accent { min-width: 6.5em; background: var(--accent); color: var(--on-accent); }
+.btn-accent:hover { background: color-mix(in srgb, var(--accent) 90%, #000); }
+.btn-accent:active { background: color-mix(in srgb, var(--accent) 80%, #000); }
+/* Copy buttons ship hidden and site.js reveals them; the space is kept so nothing shifts. */
+.btn-accent[hidden] { visibility: hidden; }
+.btn { background: var(--surface); color: var(--text); border-color: var(--frame); }
+.btn:hover { background: var(--surface-2); }
+
+/* Install block */
+
+.install {
+  display: flex; align-items: center; gap: 8px;
+  max-width: 34rem; margin-top: 32px; padding: 6px 6px 6px 16px;
+  background: var(--surface); border: 1px solid var(--frame); border-radius: 4px;
+}
+.cmd {
+  flex: 1; min-width: 0;
+  font: 400 0.9375rem/1.4 var(--f-code);
+  overflow-wrap: break-word;
+  -webkit-user-select: all; user-select: all;
+}
+.install .btn-accent { padding: 0 12px; }
+#install .install { margin-top: 20px; }
+.after { margin-top: 20px; }
+
+/* Hero */
+
+.hero-top { display: grid; grid-template-columns: minmax(0, 1fr); padding: 32px var(--g) 12px; }
+.sub {
+  margin-top: 20px; max-width: 36rem;
+  font-size: 1.125rem; line-height: 1.45; color: var(--muted);
+}
+.actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 20px; margin-top: 16px; }
+.meta { margin-top: 16px; font-size: 0.875rem; color: var(--muted); }
+
+.flyout {
+  justify-self: end;
+  width: min(100%, 320px);
+  margin: 32px -8px 0 0; /* 8px from the viewport edge, above the tray */
+  border: 1px solid var(--frame); border-radius: 8px; overflow: hidden;
+  box-shadow: 0 8px 32px rgb(0 0 0 / 0.28);
+  animation: rise 267ms cubic-bezier(0.1, 0.9, 0.2, 1) backwards;
+}
+.flyout img { width: 100%; }
+.flyout.is-closed { visibility: hidden; animation: none; }
+
+/* Taskbar */
+
+.taskbar {
+  position: relative;
+  display: flex; align-items: center; justify-content: safe flex-end; gap: 4px;
+  min-height: 48px; padding: 0 4px;
+  background: var(--taskbar); border-top: 1px solid var(--tb-line);
+  font: 600 0.75rem/1.15 var(--f-small);
+  font-variant-numeric: tabular-nums;
+  color: var(--text);
+}
+/* Start, search and app placeholders, centred like Windows 11; only where they clear the tray */
+.tb-apps { display: none; }
+.strip {
+  display: flex; align-items: center; gap: 12px;
+  min-height: 40px; padding: 0 8px;
+  border: 0; border-radius: 4px; background: transparent;
+  color: inherit; font: inherit; cursor: pointer;
+  transition: background-color 83ms linear;
+}
+.strip:hover { background: var(--tb-hover); }
+.si { display: flex; align-items: center; gap: 6px; text-align: left; }
+.nums { display: flex; flex-direction: column; }
+.ti { display: flex; align-items: center; gap: 12px; padding: 0 8px; height: 40px; }
+.ti img { width: 16px; height: 16px; max-width: none; } /* never squeezed to nothing on narrow screens */
+.clock {
+  display: flex; flex-direction: column; align-items: flex-end;
+  min-width: 4.5rem; padding: 0 8px; font-weight: 400;
+}
+
+.u12 { color: var(--u12); }
+.u34 { color: var(--u34); }
+.u41 { color: var(--u41); }
+.u58 { color: var(--u58); }
+.u62 { color: var(--u62); }
+.u100 { color: var(--u100); }
+
+/* Provider icons: masks, so icons drawn in currentColor show on black */
+
+.pi {
+  flex: none; display: block; width: 16px; height: 16px;
+  background: var(--brand, var(--text));
+  -webkit-mask: var(--icon) center / contain no-repeat;
+  mask: var(--icon) center / contain no-repeat;
+}
+.p-amp { --brand: #F34E3F; --icon: url(providers/amp.svg); }
+.p-antigravity { --brand: #4285F4; --icon: url(providers/antigravity.svg); }
+.p-claude { --brand: #DE7356; --icon: url(providers/claude.svg); }
+.p-codex { --brand: #74AA9C; --icon: url(providers/codex.svg); }
+.p-copilot { --brand: #A855F7; --icon: url(providers/copilot.svg); }
+.p-cursor { --icon: url(providers/cursor.svg); }
+.p-devin { --icon: url(providers/devin.svg); }
+.p-factory { --icon: url(providers/factory.svg); }
+.p-grok { --icon: url(providers/grok.svg); }
+.p-jetbrains-ai-assistant { --brand: #7D5FE6; --icon: url(providers/jetbrains-ai-assistant.svg); }
+.p-kimi { --icon: url(providers/kimi.svg); }
+.p-kiro { --brand: #C09CFF; --icon: url(providers/kiro.svg); }
+.p-minimax { --brand: #F5433C; --icon: url(providers/minimax.svg); }
+.p-opencode-go { --icon: url(providers/opencode-go.svg); }
+.p-synthetic { --icon: url(providers/synthetic.svg); }
+.p-zai { --icon: url(providers/zai.svg); }
+@media (prefers-color-scheme: light) {
+  /* 3:1 on the light taskbar (#E4E4E4) and the page */
+  .p-claude { --brand: #C6664D; }
+  .p-codex { --brand: #5E8A7E; }
+  .p-kiro { --brand: #9578C6; }
+}
+/* Contrast themes paint backgrounds as Canvas, which would erase the mask icons */
+@media (forced-colors: active) {
+  .pi { forced-color-adjust: none; background: CanvasText; }
+  .strip { border: 1px solid transparent; }
+}
+
+/* Sections */
+
+main section:not(.hero) { padding-top: var(--section); }
+#install { padding-bottom: var(--section); }
+
+.anatomy { display: grid; gap: 32px; margin-top: 32px; }
+.slab {
+  display: flex; align-items: center; justify-content: center;
+  padding: 32px 40px;
+  background: var(--taskbar); border: 1px solid var(--tb-line); border-radius: 8px;
+}
+.si.big { gap: 16px; }
+.si.big .pi { width: 48px; height: 48px; }
+.si.big .nums { font: 600 2.25rem/1.1 var(--f-display); font-variant-numeric: tabular-nums; }
+.defs { display: grid; gap: 16px; max-width: 36rem; }
+.defs dt { font-weight: 600; }
+.defs dd { color: var(--muted); font-size: 0.9375rem; line-height: 1.5; }
+
+.rows { list-style: none; padding: 0; display: grid; gap: 2px; max-width: 45rem; }
+.rows li {
+  display: grid; grid-template-columns: 1fr; row-gap: 4px;
+  padding: 14px 16px;
+  background: var(--surface); border: 1px solid var(--line); border-radius: 4px;
+}
+.intro + .rows, h2 + .rows { margin-top: 32px; }
+.rt { font-weight: 600; font-size: 1rem; line-height: 1.4; }
+.rd { font-size: 0.875rem; line-height: 1.45; color: var(--muted); }
+.val { font-size: 0.875rem; line-height: 1.45; color: var(--muted); font-variant-numeric: tabular-nums; }
+/* Plain hairline lists where there is no setting value to show */
+.rows.flat { gap: 0; }
+.rows.flat li { padding: 12px 0; background: none; border: 0; border-bottom: 1px solid var(--line); border-radius: 0; }
+
+.yours-grid { display: grid; gap: 40px; }
+.shot { border-radius: 8px; }
+
+.providers { list-style: none; padding: 0; display: grid; margin-top: 32px; }
+.providers li {
+  display: grid; grid-template-columns: 20px 1fr; gap: 12px;
+  padding: 12px 0; border-bottom: 1px solid var(--line);
+}
+.providers .pi { width: 20px; height: 20px; margin-top: 3px; }
+.pn { font-weight: 600; }
+.pt { font-size: 0.875rem; line-height: 1.45; color: var(--muted); }
+.more { margin-top: 24px; }
+.fine { margin-top: 8px; font-size: 0.875rem; color: var(--muted); }
+
+/* Footer */
+
+.site-footer {
+  border-top: 1px solid var(--line);
+  padding: 32px 0 48px;
+  font-size: 0.875rem; line-height: 1.5; color: var(--muted);
+}
+.site-footer .brand { font-size: 0.875rem; color: var(--text); }
+.foot-row {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+  gap: 12px 24px; margin-bottom: 16px;
+}
+.site-footer nav { display: flex; flex-wrap: wrap; gap: 4px 20px; }
+.site-footer a { color: inherit; }
+.site-footer nav a { text-decoration: none; }
+.site-footer nav a:hover { text-decoration: underline; }
+.site-footer p + p { margin-top: 6px; }
+
+/* 404 */
+
+.nf { display: flex; flex-direction: column; min-height: 100vh; min-height: 100dvh; }
+.nf > .site-header { width: 100%; }
+.nf-main { flex: 1; width: 100%; padding-block: 64px; }
+.nf-main p { margin: 20px 0 32px; color: var(--muted); }
+
+/* Motion: one moment on load */
+
+@keyframes rise { from { opacity: 0; transform: translateY(12px); } }
+@keyframes fade { from { opacity: 0; } }
+.si.d1, .si.d2, .si.d3 { animation: fade 167ms linear backwards; }
+.si.d1 { animation-delay: 150ms; }
+.si.d2 { animation-delay: 190ms; }
+.si.d3 { animation-delay: 230ms; }
+
+/* Responsive */
+
+@media (max-width: 419.98px) {
+  .sys { display: none; }
+  .cmd { font-size: 0.8125rem; }
+}
+
+/* 320px (400% zoom): the example taskbar must fit without sideways scrolling */
+@media (max-width: 359.98px) {
+  .chev { display: none; }
+  .strip { gap: 8px; }
+}
+
+@media (min-width: 768px) {
+  :root { --g: 24px; --section: 64px; }
+  .sub { font-size: 1.25rem; }
+  .flyout { width: auto; margin: 40px -12px 0 0; }
+  .rows li { grid-template-columns: 1fr auto; column-gap: 24px; align-items: center; }
+  .val { text-align: right; }
+  .providers { grid-template-columns: 1fr 1fr; column-gap: 48px; }
+  .anatomy { grid-template-columns: auto minmax(0, 1fr); gap: 40px; align-items: center; }
+}
+
+@media (min-width: 1024px) {
+  :root { --g: 32px; --section: 96px; }
+  .hero-top {
+    grid-template-columns: minmax(0, 1fr) 398px; column-gap: 48px; /* 396px image + its 1px frame */
+    padding: 64px 12px 12px max(32px, calc((100% - 1120px) / 2));
+  }
+  .hero-copy { align-self: center; }
+  .flyout { align-self: end; margin: 0; }
+  .anatomy { gap: 64px; }
+  .groups, .pair { display: grid; grid-template-columns: 1fr 1fr; column-gap: 48px; }
+  .groups .rows, .pair .rows { max-width: none; }
+  .yours-grid { grid-template-columns: minmax(0, 1fr) 468px; gap: 48px; align-items: start; }
+  .yours-grid .shot { margin-top: 8px; }
+}
+
+/* Short laptop screens (1366x768, 1920x1080 at 125%): the panel shrinks so the taskbar stays on the first screen.
+   134px = 56 header + 16 padding + 2 frame + 12 gap + 48 taskbar. */
+@media (min-width: 1024px) and (max-height: 800px) {
+  .hero-top { padding-top: 16px; grid-template-columns: minmax(0, 1fr) auto; }
+  .flyout img { width: auto; max-width: none; height: clamp(420px, 100svh - 134px, 561px); }
+}
+
+@media (min-width: 1152px) {
+  .tb-apps { display: block; position: absolute; top: 12px; left: 50%; transform: translateX(-50%); color: var(--muted); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
