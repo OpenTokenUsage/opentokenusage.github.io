@@ -1,4 +1,4 @@
-/* OpenTokenUsage site. Dark (pure black) is the default; light follows the system. */
+/* OpenTokenUsage site. Always dark (pure black), whatever the system theme. */
 
 :root {
   --bg: #000000;
@@ -29,31 +29,6 @@
 
   --g: 16px;
   --section: 48px;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    --bg: #F3F3F3;
-    --surface: #FFFFFF;
-    --surface-2: #F9F9F9;
-    --text: #1A1A1A;
-    --muted: #5D5D5D;
-    --line: #E0E0E0;
-    --frame: #CFCFCF;
-    --accent: #0058C8;
-    --on-accent: #FFFFFF;
-    --taskbar: #E4E4E4; /* dark enough to stand apart from the #F3F3F3 page */
-    --tb-hover: #F9F9F9; /* lighter, like a Windows 11 light taskbar */
-    --tb-line: #CFCFCF;
-
-    /* Darkened to 4.5:1 on the light taskbar (#E4E4E4) */
-    --u12: #1A1A1A;
-    --u34: #756524;
-    --u41: #786514;
-    --u58: #855F14;
-    --u62: #895D18;
-    --u100: #B91C1C;
-  }
 }
 
 /* Base */
@@ -222,12 +197,6 @@ h3 { font: 600 0.875rem/1.4 var(--f-text); margin: 40px 0 12px; }
 .p-opencode-go { --icon: url(providers/opencode-go.svg); }
 .p-synthetic { --icon: url(providers/synthetic.svg); }
 .p-zai { --icon: url(providers/zai.svg); }
-@media (prefers-color-scheme: light) {
-  /* 3:1 on the light taskbar (#E4E4E4) and the page */
-  .p-claude { --brand: #C6664D; }
-  .p-codex { --brand: #5E8A7E; }
-  .p-kiro { --brand: #9578C6; }
-}
 /* Contrast themes paint backgrounds as Canvas, which would erase the mask icons */
 @media (forced-colors: active) {
   .pi { forced-color-adjust: none; background: CanvasText; }
