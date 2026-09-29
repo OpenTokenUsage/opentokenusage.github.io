@@ -1,6 +1,6 @@
 # opentokenusage.github.io
 
-The website for [OpenTokenUsage](https://github.com/PowerUserZ/OpenTokenUsage), a free Windows 11 tray app that shows your AI coding limits next to the clock. Live at <https://opentokenusage.github.io/>.
+The website for [OpenTokenUsage](https://github.com/PowerUserZ/OpenTokenUsage), a free Windows 11 tray app that shows your AI coding limits next to the clock. Live at <https://opentokenusage.app/> (the `CNAME` file sets the custom domain; <https://opentokenusage.github.io/> redirects there).
 
 The app itself, its releases and its issues live in [PowerUserZ/OpenTokenUsage](https://github.com/PowerUserZ/OpenTokenUsage). Report app problems there.
 
