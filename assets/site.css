@@ -265,6 +265,8 @@ main section:not(.hero) { padding-top: var(--section); }
 /* Plain hairline lists where there is no setting value to show */
 .rows.flat { gap: 0; }
 .rows.flat li { padding: 12px 0; background: none; border: 0; border-bottom: 1px solid var(--line); border-radius: 0; }
+.faq h3 { margin: 0 0 4px; }
+.faq .rd { font-size: 0.9375rem; line-height: 1.5; max-width: 62ch; }
 
 .yours-grid { display: grid; gap: 40px; }
 .shot { border-radius: 8px; }

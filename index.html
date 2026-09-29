@@ -4,31 +4,194 @@
 <meta charset="utf-8">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; connect-src https://api.github.com; script-src 'self'; style-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>OpenTokenUsage: every AI coding limit, next to your clock</title>
-<meta name="description" content="Free Windows 11 tray app that shows your AI coding limits for Claude, Codex, Cursor and 13 other tools: session and weekly usage, resets and pace. Open source.">
+<title>Claude Code &amp; Codex usage tracker for Windows | OpenTokenUsage</title>
+<meta name="description" content="Free, open-source Windows 11 tray app for Claude Code, Codex, Cursor, Copilot and 12 more AI coding tools: session and weekly limits, resets, pace and alerts.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <link rel="canonical" href="https://opentokenusage.app/">
 <meta name="color-scheme" content="dark light">
 <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
 <meta name="theme-color" content="#F3F3F3" media="(prefers-color-scheme: light)">
-<link rel="icon" href="assets/logo.svg" type="image/svg+xml">
-<link rel="icon" href="assets/icon.png" type="image/png" sizes="512x512">
-<link rel="apple-touch-icon" href="assets/icon.png">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/assets/logo.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="application-name" content="OpenTokenUsage">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="OpenTokenUsage">
+<meta property="og:locale" content="en_US">
 <meta property="og:url" content="https://opentokenusage.app/">
 <meta property="og:title" content="OpenTokenUsage: every AI coding limit, next to your clock">
-<meta property="og:description" content="Free Windows 11 tray app that shows your AI coding limits for Claude, Codex, Cursor and 13 other tools: session and weekly usage, resets and pace. Open source.">
+<meta property="og:description" content="Free Windows 11 tray app that shows your Claude Code, Codex, Cursor, Copilot and 12 more AI coding limits: session and weekly usage, resets and pace. Open source.">
 <meta property="og:image" content="https://opentokenusage.app/assets/og.png">
+<meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="“Every AI coding limit, next to your clock.” The OpenTokenUsage panel above the Windows taskbar, with Claude, Codex and Cursor usage next to the clock">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="OpenTokenUsage: every AI coding limit, next to your clock">
-<meta name="twitter:description" content="Free Windows 11 tray app that shows your AI coding limits for Claude, Codex, Cursor and 13 other tools: session and weekly usage, resets and pace. Open source.">
+<meta name="twitter:description" content="Free Windows 11 tray app that shows your Claude Code, Codex, Cursor, Copilot and 12 more AI coding limits: session and weekly usage, resets and pace. Open source.">
 <meta name="twitter:image" content="https://opentokenusage.app/assets/og.png">
 <meta name="twitter:image:alt" content="“Every AI coding limit, next to your clock.” The OpenTokenUsage panel above the Windows taskbar, with Claude, Codex and Cursor usage next to the clock">
 <link rel="stylesheet" href="assets/site.css">
 <script src="assets/site.js" defer></script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Organization",
+   "@id": "https://opentokenusage.app/#org",
+   "name": "OpenTokenUsage",
+   "url": "https://opentokenusage.app/",
+   "logo": "https://opentokenusage.app/assets/icon.png",
+   "sameAs": [
+    "https://github.com/OpenTokenUsage",
+    "https://github.com/PowerUserZ/OpenTokenUsage"
+   ]
+  },
+  {
+   "@type": "WebSite",
+   "@id": "https://opentokenusage.app/#website",
+   "url": "https://opentokenusage.app/",
+   "name": "OpenTokenUsage",
+   "inLanguage": "en",
+   "publisher": {
+    "@id": "https://opentokenusage.app/#org"
+   }
+  },
+  {
+   "@type": "SoftwareApplication",
+   "@id": "https://opentokenusage.app/#app",
+   "name": "OpenTokenUsage",
+   "description": "A free, open-source Windows 11 tray app that shows how much of your AI coding subscriptions you've used: session and weekly limits, credits, reset times and pace for Claude Code, Codex, Cursor, GitHub Copilot and 12 more providers.",
+   "url": "https://opentokenusage.app/",
+   "applicationCategory": "DeveloperApplication",
+   "applicationSubCategory": "AI usage tracker",
+   "operatingSystem": "Windows 11",
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+   },
+   "isAccessibleForFree": true,
+   "license": "https://opensource.org/licenses/MIT",
+   "downloadUrl": "https://github.com/PowerUserZ/OpenTokenUsage/releases/latest",
+   "installUrl": "https://github.com/PowerUserZ/OpenTokenUsage/releases/latest",
+   "softwareHelp": {
+    "@type": "CreativeWork",
+    "url": "https://github.com/PowerUserZ/OpenTokenUsage#readme"
+   },
+   "image": "https://opentokenusage.app/assets/og.png",
+   "screenshot": [
+    "https://opentokenusage.app/assets/panel-dark.webp",
+    "https://opentokenusage.app/assets/strip-styles.webp"
+   ],
+   "featureList": [
+    "Session (5-hour) and weekly usage limits",
+    "Reset times, pace and run-out estimate",
+    "Notifications at chosen usage levels, with sounds",
+    "Tray icon and taskbar strip with usage numbers",
+    "Local HTTP API on 127.0.0.1:6736",
+    "No account, no telemetry"
+   ],
+   "keywords": "Claude Code usage, Codex usage limit, Cursor usage, GitHub Copilot quota, AI usage tracker, rate limit, Windows tray app",
+   "inLanguage": [
+    "en",
+    "de",
+    "es-ES",
+    "es-419",
+    "fr",
+    "it",
+    "ja",
+    "ko",
+    "pt-BR",
+    "tr",
+    "zh-Hans"
+   ],
+   "author": {
+    "@type": "Person",
+    "name": "PowerUserZ",
+    "url": "https://github.com/PowerUserZ"
+   },
+   "publisher": {
+    "@id": "https://opentokenusage.app/#org"
+   },
+   "isBasedOn": "https://github.com/robinebers/openusage",
+   "sameAs": [
+    "https://github.com/PowerUserZ/OpenTokenUsage"
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "@id": "https://opentokenusage.app/#faq",
+   "url": "https://opentokenusage.app/",
+   "isPartOf": {
+    "@id": "https://opentokenusage.app/#website"
+   },
+   "about": {
+    "@id": "https://opentokenusage.app/#app"
+   },
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "How do I see my Claude Code usage limits on Windows?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Install OpenTokenUsage and stay signed in to Claude Code. The app uses Claude Code's existing login, so there's no API key to set up, and shows your 5-hour session limit and weekly limit next to the clock, with reset times, pace and extra usage."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How do I check my Codex usage limits?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Sign in to Codex as usual. OpenTokenUsage reads that login and shows the 5-hour and weekly limits, the code review limit and credits, and can warn you before you run out."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Is there a CodexBar for Windows?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "CodexBar and OpenUsage live in the macOS menu bar. OpenTokenUsage does the same job in the Windows 11 notification area: it's built on OpenUsage, inspired by CodexBar, and made for Windows."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Which AI coding tools does it track?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Claude, Codex, Cursor, GitHub Copilot, Antigravity, Amp, Devin, Factory (Droid), Grok, JetBrains AI Assistant, Kimi Code, Kiro, MiniMax, OpenCode Go, Synthetic and Z.ai. Each one is a plugin, and new ones arrive with app updates."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can it warn me before I hit a limit?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. It notifies you at the usage levels you pick (80% and 95% by default), when you're on pace to run out before the reset, and when a limit resets, with a sound of your choice."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Does it send my usage or logins anywhere?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. There's no account and no telemetry. Your logins stay on your PC, and the app talks only to the providers you turn on, their status pages, and GitHub for updates."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Is it free?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. It's free and open source under the MIT license. Install it with winget or the installer from GitHub Releases."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
 </head>
 <body>
 <header class="site-header wrap">
@@ -177,6 +340,19 @@
   </ul>
 </section>
 </div>
+
+<section id="faq" class="wrap" aria-labelledby="faq-title">
+  <h2 id="faq-title">Questions</h2>
+  <ul class="rows flat faq">
+    <li><div><h3 class="rt">How do I see my Claude Code usage limits on Windows?</h3><p class="rd">Install OpenTokenUsage and stay signed in to Claude Code. The app uses Claude Code's existing login, so there's no API key to set up, and shows your 5-hour session limit and weekly limit next to the clock, with reset times, pace and extra usage.</p></div></li>
+    <li><div><h3 class="rt">How do I check my Codex usage limits?</h3><p class="rd">Sign in to Codex as usual. OpenTokenUsage reads that login and shows the 5-hour and weekly limits, the code review limit and credits, and can warn you before you run out.</p></div></li>
+    <li><div><h3 class="rt">Is there a CodexBar for Windows?</h3><p class="rd">CodexBar and OpenUsage live in the macOS menu bar. OpenTokenUsage does the same job in the Windows 11 notification area: it's built on OpenUsage, inspired by CodexBar, and made for Windows.</p></div></li>
+    <li><div><h3 class="rt">Which AI coding tools does it track?</h3><p class="rd">Claude, Codex, Cursor, GitHub Copilot, Antigravity, Amp, Devin, Factory (Droid), Grok, JetBrains AI Assistant, Kimi Code, Kiro, MiniMax, OpenCode Go, Synthetic and Z.ai. Each one is a plugin, and new ones arrive with app updates.</p></div></li>
+    <li><div><h3 class="rt">Can it warn me before I hit a limit?</h3><p class="rd">Yes. It notifies you at the usage levels you pick (80% and 95% by default), when you're on pace to run out before the reset, and when a limit resets, with a sound of your choice.</p></div></li>
+    <li><div><h3 class="rt">Does it send my usage or logins anywhere?</h3><p class="rd">No. There's no account and no telemetry. Your logins stay on your PC, and the app talks only to the providers you turn on, their status pages, and GitHub for updates.</p></div></li>
+    <li><div><h3 class="rt">Is it free?</h3><p class="rd">Yes. It's free and open source under the MIT license. Install it with winget or the installer from GitHub Releases.</p></div></li>
+  </ul>
+</section>
 
 <section id="install" class="wrap" aria-labelledby="install-title">
   <h2 id="install-title">Install it in one line</h2>

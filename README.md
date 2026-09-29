@@ -14,6 +14,8 @@ Plain HTML, CSS and JavaScript. No build step, no frameworks, no web fonts, no a
 - `assets/og.png`: the 1200x630 share image, a screenshot of a page built from the site's own hero
 - `assets/logo.svg`, `assets/icon.png`: the app logo from `src-tauri/icons/`
 - `assets/providers/*.svg`: provider icons from the app's `plugins/<id>/icon.svg`
+- `favicon.ico`, `apple-touch-icon.png`: made from `assets/icon.png`
+- Search and AI: `robots.txt`, `sitemap.xml` (bump `lastmod` when the page changes), `llms.txt` (a plain-text summary for AI assistants), the JSON-LD block in `index.html` (its FAQ answers must match the visible FAQ word for word), and `<key>.txt`, the public IndexNow key for Bing and other engines
 
 GitHub Pages serves the repo root. The only request to another site is the latest version number from the GitHub API; if it fails, the page shows the version written in the HTML (update `data-version` in `index.html` on each release).
 
