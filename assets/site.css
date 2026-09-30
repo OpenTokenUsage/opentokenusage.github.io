@@ -245,7 +245,16 @@ h3 { font: 600 0.875rem/1.4 var(--f-text); margin: 40px 0 12px; }
 /* Sections */
 
 main section:not(.hero) { padding-top: var(--section); }
-#install { padding-bottom: var(--section); }
+#support { padding-bottom: var(--section); }
+/* The last word before the footer: a framed card with the Buy Me a Coffee button (its own graphic, hosted here) */
+.support {
+  display: grid; gap: 24px; align-items: center;
+  padding: 24px; border: 1px solid var(--frame); border-radius: 8px; background: var(--surface);
+}
+.support .intro { max-width: 52ch; }
+.bmc { justify-self: start; border-radius: 12px; }
+.bmc img { width: 218px; height: auto; transition: transform 83ms linear; }
+.bmc:hover img { transform: translateY(-1px); }
 
 .anatomy { display: grid; gap: 32px; margin-top: 32px; }
 .slab {
@@ -354,6 +363,8 @@ button.link { padding: 0; border: 0; background: none; color: inherit; font: inh
 }
 
 @media (min-width: 768px) {
+  .support { grid-template-columns: minmax(0, 1fr) auto; gap: 48px; padding: 32px 40px; }
+  .bmc { justify-self: end; }
   :root { --g: 24px; --section: 64px; }
   .sub { font-size: 1.25rem; }
   .flyout { width: auto; margin: 40px -12px 0 0; }

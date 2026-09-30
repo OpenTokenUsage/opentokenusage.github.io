@@ -16,6 +16,7 @@ Plain HTML, CSS and JavaScript. No build step, no frameworks, no web fonts.
 - `assets/logo.svg`, `assets/icon.png`: the app logo from `src-tauri/icons/`
 - `assets/providers/*.svg`: provider icons from the app's `plugins/<id>/icon.svg`
 - `favicon.ico`, `apple-touch-icon.png`: made from `assets/icon.png`
+- `assets/bmc-button.png`: Buy Me a Coffee's own yellow button graphic, hosted here so the page loads nothing from their CDN
 - Search and AI: `robots.txt`, `sitemap.xml` (bump `lastmod` when the page changes), `llms.txt` (a plain-text summary for AI assistants), the JSON-LD block in `index.html` (its FAQ answers must match the visible FAQ word for word), and `<key>.txt`, the public IndexNow key for Bing and other engines
 
 GitHub Pages serves the repo root. Without consent the only request to another site is the latest version number from the GitHub API; if it fails, the page shows the version written in the HTML (update `data-version` in `index.html` on each release).
