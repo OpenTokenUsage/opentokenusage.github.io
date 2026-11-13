@@ -1,31 +1,37 @@
 # OpenTokenUsage
 
-> OpenTokenUsage is a free, open-source (MIT) Windows 11 tray app that shows how much of your AI coding subscriptions you've used: session (5-hour) and weekly limits, credits, reset times and pace, for Claude Code, Codex, Cursor, GitHub Copilot and 12 more providers. It is the Windows counterpart of macOS menu bar apps like CodexBar and OpenUsage.
+> OpenTokenUsage is a free, open-source (MIT) Windows 11 tray app that shows how much of your AI coding subscriptions you've used: session (5-hour) and weekly limits, credits, reset times and pace, for Claude Code, Codex, Cursor, GitHub Copilot and 15 more providers. For Claude and Codex it also shows what each project costs. It is the Windows counterpart of macOS menu bar apps like CodexBar and OpenUsage.
 
 - Platform: Windows 11 only (no macOS or Linux build).
-- Install: `winget install PowerUserZ.OpenTokenUsage`, or the installer from GitHub Releases. The app updates itself.
+- Install: `winget install PowerUserZ.OpenTokenUsage`, or the setup .exe from GitHub Releases. It installs for the current Windows user only (`%LOCALAPPDATA%\OpenTokenUsage`), so neither the install nor updates ask for admin rights. The installer isn't code-signed: a setup downloaded in a browser gets a SmartScreen warning (More info, then Run anyway); winget and in-app updates don't.
+- Updates: the app checks every 15 minutes, downloads a new version and installs it quietly when you click Restart to update.
 - Price: free. No account, no telemetry; logins stay on the PC.
-- How it works: it reuses the login of each tool you already use (for example Claude Code or the Codex CLI) and asks that provider for your usage. No API keys to paste for Claude or Codex.
-- Providers: Claude, Codex, GitHub Copilot, Cursor, Antigravity, JetBrains AI Assistant, Devin, Kiro, OpenCode Go, Z.ai, Kimi Code, Factory (Droid), MiniMax, Grok, Amp, Synthetic.
-- Shows: used percent, reset time, pace (ahead or behind an even pace), and when you'll run out at the current rate.
-- Alerts: Windows notifications at chosen usage levels (80% and 95% by default), pace warnings and resets, with built-in or custom sounds.
-- Tray: app icon, percent, bars, or one number or logo ring per provider; an experimental taskbar strip shows session and weekly numbers inside the taskbar.
+- How it works: it reuses the login of each tool you already use (for example Claude Code or the Codex CLI) and asks that provider for your usage. No API keys to paste for Claude or Codex. On first start it turns on the providers it finds you signed in to.
+- Providers: Claude, Codex, GitHub Copilot, Cursor, Antigravity, JetBrains AI Assistant, Devin, Kiro, OpenCode Go, Z.ai, Kimi Code, Factory (Droid), MiniMax, Grok, Amp, Synthetic, Muse Code (off until you turn it on), OpenRouter, DeepSeek.
+- Shows: used percent, reset time, pace (ahead or behind an even pace, optionally counting work days only), and when you'll run out at the current rate.
+- Claude and Codex detail pages: usage and cost by project (repository, git branch, ticket key) with monthly budgets and CSV export, usage by weekday and hour, prompt cache hit rate, banked rate limit resets with expiry reminders. Claude also lists the Claude Code sessions running on the PC. Costs come from ccusage (needs Bun or Node.js), in one of 13 currencies at a rate you enter.
+- Alerts: Windows notifications at chosen usage levels (80% and 95% by default, or per provider), pace warnings and resets, with built-in or custom sounds.
+- Tray: app icon, percent (optionally colored by pace), bars, or one number or logo ring per provider; an experimental taskbar strip shows session and weekly numbers inside the taskbar, on one monitor or all of them.
+- Accounts: a second Claude or Codex account gets its own card, and so does a different login inside a running WSL distro.
+- Settings backup: export settings to a file and import them on another PC (logins aren't included).
 - Languages: English, German, Spanish (Spain and Latin America), French, Italian, Japanese, Korean, Portuguese (Brazil), Turkish, Simplified Chinese.
 - Local HTTP API: other apps on the same PC can read usage from 127.0.0.1:6736 (loopback only).
+- Network: besides the providers you turn on, the app contacts only their status pages, GitHub for updates, and npm for ccusage.
 
 ## Links
 
 - [Website](https://opentokenusage.app/): features, FAQ and install command
 - [Source code and README](https://github.com/PowerUserZ/OpenTokenUsage): Tauri v2 (Rust) + React
-- [Latest release](https://github.com/PowerUserZ/OpenTokenUsage/releases/latest): installer (.exe and .msi)
+- [Latest release](https://github.com/PowerUserZ/OpenTokenUsage/releases/latest): the setup .exe, its signature and `latest.json` for the updater
 - [Changelog](https://github.com/PowerUserZ/OpenTokenUsage/blob/main/CHANGELOG.md)
 
 ## Docs
 
-- [Claude provider](https://github.com/PowerUserZ/OpenTokenUsage/blob/main/docs/providers/claude.md): session, weekly and model limits, extra usage, local token spend
+- [Claude provider](https://github.com/PowerUserZ/OpenTokenUsage/blob/main/docs/providers/claude.md): session, weekly and model limits, extra usage, rate limit resets, projects and costs
 - [Codex provider](https://github.com/PowerUserZ/OpenTokenUsage/blob/main/docs/providers/codex.md): 5-hour and weekly limits, code reviews, credits
 - [Cursor provider](https://github.com/PowerUserZ/OpenTokenUsage/blob/main/docs/providers/cursor.md)
 - [GitHub Copilot provider](https://github.com/PowerUserZ/OpenTokenUsage/blob/main/docs/providers/copilot.md)
+- [Muse Code provider](https://github.com/PowerUserZ/OpenTokenUsage/blob/main/docs/providers/muse.md)
 - [Local HTTP API](https://github.com/PowerUserZ/OpenTokenUsage/blob/main/docs/local-http-api.md)
 - [Plugin API](https://github.com/PowerUserZ/OpenTokenUsage/blob/main/docs/plugins/api.md): how to add a provider
 

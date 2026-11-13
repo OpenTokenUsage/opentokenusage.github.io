@@ -219,9 +219,10 @@ h3 { font: 600 0.875rem/1.4 var(--f-text); margin: 40px 0 12px; }
 .p-amp { --brand: #F34E3F; --icon: url(providers/amp.svg); }
 .p-antigravity { --brand: #4285F4; --icon: url(providers/antigravity.svg); }
 .p-claude { --brand: #DE7356; --icon: url(providers/claude.svg); }
-.p-codex { --brand: #74AA9C; --icon: url(providers/codex.svg); }
+.p-codex { --icon: url(providers/codex.svg); } /* white on dark, black on light, as in the app */
 .p-copilot { --brand: #A855F7; --icon: url(providers/copilot.svg); }
 .p-cursor { --icon: url(providers/cursor.svg); }
+.p-deepseek { --brand: #4D6BFE; --icon: url(providers/deepseek.svg); }
 .p-devin { --icon: url(providers/devin.svg); }
 .p-factory { --icon: url(providers/factory.svg); }
 .p-grok { --icon: url(providers/grok.svg); }
@@ -229,12 +230,13 @@ h3 { font: 600 0.875rem/1.4 var(--f-text); margin: 40px 0 12px; }
 .p-kimi { --icon: url(providers/kimi.svg); }
 .p-kiro { --brand: #C09CFF; --icon: url(providers/kiro.svg); }
 .p-minimax { --brand: #F5433C; --icon: url(providers/minimax.svg); }
+.p-muse { --brand: #0668E1; --icon: url(providers/muse.svg); }
 .p-opencode-go { --icon: url(providers/opencode-go.svg); }
+.p-openrouter { --brand: #6467F2; --icon: url(providers/openrouter.svg); }
 .p-synthetic { --icon: url(providers/synthetic.svg); }
 .p-zai { --icon: url(providers/zai.svg); }
 /* 3:1 on the light taskbar (#E4E4E4) and the page */
 [data-theme="light"] .p-claude { --brand: #C6664D; }
-[data-theme="light"] .p-codex { --brand: #5E8A7E; }
 [data-theme="light"] .p-kiro { --brand: #9578C6; }
 /* Contrast themes paint backgrounds as Canvas, which would erase the mask icons */
 @media (forced-colors: active) {
@@ -318,7 +320,8 @@ main section:not(.hero) { padding-top: var(--section); }
 .site-footer p + p { margin-top: 6px; }
 button.link { padding: 0; border: 0; background: none; color: inherit; font: inherit; text-decoration: underline; cursor: pointer; }
 
-/* Analytics question, shaped like a Windows 11 notification */
+/* Analytics question, shaped like a Windows 11 notification. Bottom left on wider screens: bottom
+   right would cover the example strip and clock, the first thing the page shows. */
 
 .consent {
   position: fixed; z-index: 10; left: var(--g); right: var(--g); bottom: var(--g);
@@ -330,7 +333,7 @@ button.link { padding: 0; border: 0; background: none; color: inherit; font: inh
 .consent[hidden] { display: none; }
 .consent-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
 @media (min-width: 480px) {
-  .consent { left: auto; width: 364px; }
+  .consent { right: auto; width: 364px; }
 }
 
 /* 404 */
@@ -367,7 +370,9 @@ button.link { padding: 0; border: 0; background: none; color: inherit; font: inh
   .bmc { justify-self: end; }
   :root { --g: 24px; --section: 64px; }
   .sub { font-size: 1.25rem; }
-  .flyout { width: auto; margin: 40px -12px 0 0; }
+  /* A set width, not auto: the light theme's panel loads lazily, and an unloaded image would leave an
+     auto-sized figure 0 px wide until it arrives, then push the taskbar down. */
+  .flyout { width: min(100%, 402px); margin: 40px -12px 0 0; }
   .rows li { grid-template-columns: 1fr auto; column-gap: 24px; align-items: center; }
   .val { text-align: right; }
   .providers { grid-template-columns: 1fr 1fr; column-gap: 48px; }
@@ -377,7 +382,7 @@ button.link { padding: 0; border: 0; background: none; color: inherit; font: inh
 @media (min-width: 1024px) {
   :root { --g: 32px; --section: 96px; }
   .hero-top {
-    grid-template-columns: minmax(0, 1fr) 398px; column-gap: 48px; /* 396px image + its 1px frame */
+    grid-template-columns: minmax(0, 1fr) 402px; column-gap: 48px; /* 400px image + its 1px frame */
     padding: 64px 12px 12px max(32px, calc((100% - 1120px) / 2));
   }
   .hero-copy { align-self: center; }
@@ -393,7 +398,8 @@ button.link { padding: 0; border: 0; background: none; color: inherit; font: inh
    134px = 56 header + 16 padding + 2 frame + 12 gap + 48 taskbar. */
 @media (min-width: 1024px) and (max-height: 800px) {
   .hero-top { padding-top: 16px; grid-template-columns: minmax(0, 1fr) auto; }
-  .flyout img { width: auto; max-width: none; height: clamp(420px, 100svh - 134px, 561px); }
+  .flyout { width: auto; } /* the image's set height sizes it, loaded or not */
+  .flyout img { width: auto; max-width: none; height: clamp(420px, 100svh - 134px, 603px); }
 }
 
 @media (min-width: 1152px) {

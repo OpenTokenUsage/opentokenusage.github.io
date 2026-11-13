@@ -36,7 +36,7 @@ if ((versions.length || installers.length) && window.fetch && window.AbortSignal
       if (!d) return;
       const m = /^v?(\d+\.\d+\.\d+)$/.exec(typeof d.tag_name === "string" ? d.tag_name : "");
       if (m) for (const el of versions) el.textContent = m[1];
-      // Point "Download the installer" at the setup .exe instead of a page of .msi, .sig and .json files.
+      // Point "Download the installer" at the setup .exe instead of a page of .exe, .sig and .json files.
       const exe = Array.isArray(d.assets) && d.assets.find((a) => a && typeof a.name === "string"
         && /_x64-setup\.exe$/.test(a.name) && typeof a.browser_download_url === "string"
         && a.browser_download_url.startsWith(DOWNLOADS));
