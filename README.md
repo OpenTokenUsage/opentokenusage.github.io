@@ -12,7 +12,9 @@ Plain HTML, CSS and JavaScript. No build step, no frameworks, no web fonts.
 - `assets/site.css`, `assets/site.js`, `assets/theme.js`: bump the `?v=` on their links in `index.html` and `404.html` whenever you change them (GitHub Pages lets browsers cache for 10 minutes, so new HTML could meet old CSS/JS)
 - Theme: dark by default whatever the system theme; the header button switches to light and `theme.js` (in `<head>`, not deferred, so there's no dark flash) remembers it in `localStorage` (`theme`). Light styles hang off `:root[data-theme="light"]`; `panel-light.webp` loads only when shown
 - `assets/*.webp`: the app's own UI with demo usage, drawn at 2x. The panels are its React frontend run in a browser with Tauri's IPC mocked (`@tauri-apps/api/mocks`); `strip-styles.webp` uses its taskbar strip and tray ring drawing (`makeTaskbarStripSvg`, `makeProviderRingSvg`) on mock Windows 11 taskbars. Redo them when the panel's look changes
-- `assets/og.png`: the 1200x630 share image, a screenshot of a page built from the site's own hero
+- `assets/desktop.webp`: the desktop widgets and the screen-edge rail, drawn by the app's own `makeTaskbarStripSvg` and `makeEdgeRailSvg` (the same image as the app README's `docs/images/desktop.webp`)
+- `assets/og.png`: the 1200x630 share image, built the same way as the panels
+- `assets/flags/*.svg`: language flags from [flag-icons](https://github.com/lipis/flag-icons) 7.2.3 (MIT); Spanish (Latin America) uses Mexico's
 - `assets/logo.svg`, `assets/icon.png`: the app logo from `src-tauri/icons/`
 - `assets/providers/*.svg`: provider icons from the app's `plugins/<id>/icon.svg`
 - `favicon.ico`, `apple-touch-icon.png`: made from `assets/icon.png`

@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com; connect-src https://api.github.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; script-src 'self' https://www.googletagmanager.com; style-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Claude Code &amp; Codex usage tracker for Windows | OpenTokenUsage</title>
-<meta name="description" content="Free, open-source Windows 11 tray app for Claude Code, Codex, Cursor, Copilot and 15 more AI coding tools: session and weekly limits, resets, pace, costs and alerts.">
+<meta name="description" content="Free, open-source Windows 11 tray app for Claude Code, Codex, Cursor, Copilot and 21 more AI coding tools: session and weekly limits, resets, pace, spend and alerts, in the taskbar and on the desktop.">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <link rel="canonical" href="https://opentokenusage.app/">
 <meta name="color-scheme" content="dark">
@@ -20,18 +20,18 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:url" content="https://opentokenusage.app/">
 <meta property="og:title" content="OpenTokenUsage: every AI coding limit, next to your clock">
-<meta property="og:description" content="Free Windows 11 tray app that shows your Claude Code, Codex, Cursor, Copilot and 15 more AI coding limits: session and weekly usage, resets, pace and project costs. Open source.">
-<meta property="og:image" content="https://opentokenusage.app/assets/og.png?v=2">
+<meta property="og:description" content="Free Windows 11 tray app that shows your Claude Code, Codex, Cursor, Copilot and 21 more AI coding limits: session and weekly usage, resets, pace, spend and project costs. Open source.">
+<meta property="og:image" content="https://opentokenusage.app/assets/og.png?v=3">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="“Every AI coding limit, next to your clock.” The OpenTokenUsage panel above the Windows taskbar, with Claude, Codex and Cursor usage next to the clock">
+<meta property="og:image:alt" content="“Every AI coding limit, next to your clock.” The OpenTokenUsage panel above the Windows taskbar, with Claude, Codex and Cursor limits, live sessions and today's spend, and the same usage next to the clock">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="OpenTokenUsage: every AI coding limit, next to your clock">
-<meta name="twitter:description" content="Free Windows 11 tray app that shows your Claude Code, Codex, Cursor, Copilot and 15 more AI coding limits: session and weekly usage, resets, pace and project costs. Open source.">
-<meta name="twitter:image" content="https://opentokenusage.app/assets/og.png?v=2">
-<meta name="twitter:image:alt" content="“Every AI coding limit, next to your clock.” The OpenTokenUsage panel above the Windows taskbar, with Claude, Codex and Cursor usage next to the clock">
-<link rel="stylesheet" href="assets/site.css?v=6">
+<meta name="twitter:description" content="Free Windows 11 tray app that shows your Claude Code, Codex, Cursor, Copilot and 21 more AI coding limits: session and weekly usage, resets, pace, spend and project costs. Open source.">
+<meta name="twitter:image" content="https://opentokenusage.app/assets/og.png?v=3">
+<meta name="twitter:image:alt" content="“Every AI coding limit, next to your clock.” The OpenTokenUsage panel above the Windows taskbar, with Claude, Codex and Cursor limits, live sessions and today's spend, and the same usage next to the clock">
+<link rel="stylesheet" href="assets/site.css?v=7">
 <script src="assets/site.js?v=3" defer></script>
 <script type="application/ld+json">
 {
@@ -62,7 +62,7 @@
    "@type": "SoftwareApplication",
    "@id": "https://opentokenusage.app/#app",
    "name": "OpenTokenUsage",
-   "description": "A free, open-source Windows 11 tray app that shows how much of your AI coding subscriptions you've used: session and weekly limits, credits, reset times and pace for Claude Code, Codex, Cursor, GitHub Copilot and 15 more providers, and what each project costs on Claude and Codex.",
+   "description": "A free, open-source Windows 11 tray app that shows how much of your AI coding subscriptions you've used: session and weekly limits, credits, reset times and pace for Claude Code, Codex, Cursor, GitHub Copilot and 21 more providers, what you spend each day, and what each project costs on Claude and Codex.",
    "url": "https://opentokenusage.app/",
    "applicationCategory": "DeveloperApplication",
    "applicationSubCategory": "AI usage tracker",
@@ -83,15 +83,18 @@
    "image": "https://opentokenusage.app/assets/og.png",
    "screenshot": [
     "https://opentokenusage.app/assets/panel-dark.webp",
-    "https://opentokenusage.app/assets/strip-styles.webp"
+    "https://opentokenusage.app/assets/strip-styles.webp",
+    "https://opentokenusage.app/assets/desktop.webp"
    ],
    "featureList": [
     "Session (5-hour) and weekly usage limits",
     "Reset times, pace and run-out estimate",
     "Notifications at chosen usage levels, per provider, with sounds",
     "Tray icon and taskbar strip with usage numbers",
+    "Desktop widgets and a screen-edge rail",
+    "Daily spend across Claude, Codex and other CLIs, by model",
     "Project costs, monthly budgets and CSV export for Claude and Codex",
-    "Usage by hour and live Claude Code sessions",
+    "Usage by hour, a year of daily use, and live Claude Code and Codex sessions",
     "Banked rate limit resets with expiry reminders",
     "Local HTTP API on 127.0.0.1:6736",
     "Installs per user, without admin rights",
@@ -164,7 +167,7 @@
      "name": "Which AI coding tools does it track?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Claude, Codex, GitHub Copilot, Cursor, Antigravity, JetBrains AI Assistant, Devin, Kiro, OpenCode Go, Z.ai, Kimi Code, Factory (Droid), MiniMax, Grok, Amp, Synthetic, Muse Code, OpenRouter and DeepSeek. Each one is a plugin, and new ones arrive with app updates."
+      "text": "Claude, Codex, GitHub Copilot, Cursor, Antigravity, JetBrains AI Assistant, Devin, Kiro, OpenCode Go, Z.ai, Kimi Code, Kimi API, Factory (Droid), MiniMax, Grok, Amp, Synthetic, Muse Code, OpenRouter, DeepSeek, Codebuff, Kilo, Qwen Code, Ollama, and API balances from New API, One API, Sub2API or your own endpoint. Each one is a plugin, and new ones arrive with app updates."
      }
     },
     {
@@ -219,7 +222,7 @@
   <div class="hero-top">
     <div class="hero-copy">
       <h1 id="hero-title">Every AI coding limit, next to your clock.</h1>
-      <p class="sub">A free Windows 11 tray app that shows how much of Claude, Codex, Cursor and 16 other subscriptions you've used: session and weekly limits, credits, when they reset, and whether you're on pace.</p>
+      <p class="sub">A free Windows 11 tray app that shows how much of Claude, Codex, Cursor and 22 other AI tools you've used: session and weekly limits, credits, when they reset, whether you're on pace, and what you spent today.</p>
       <div class="install">
         <code class="cmd">winget install <wbr>PowerUserZ.<wbr>OpenTokenUsage</code>
         <button type="button" class="btn-accent" data-copy="winget install PowerUserZ.OpenTokenUsage" aria-label="Copy the winget command" hidden>Copy</button>
@@ -228,11 +231,11 @@
         <a class="btn" href="https://github.com/PowerUserZ/OpenTokenUsage/releases/latest" data-installer>Download the installer</a>
         <a href="https://github.com/PowerUserZ/OpenTokenUsage">Source on GitHub</a>
       </p>
-      <p class="meta">Version <span data-version>0.8.6</span> for Windows 11. Free, open source (MIT), installs without admin rights, and keeps itself up to date.</p>
+      <p class="meta">Version <span data-version>0.9.2</span> for Windows 11. Free, open source (MIT), installs without admin rights, and keeps itself up to date.</p>
     </div>
     <figure id="panel" class="flyout">
-      <img class="for-dark" src="assets/panel-dark.webp?v=2" width="400" height="603" fetchpriority="high" decoding="async" alt="The OpenTokenUsage panel. Claude Max: session 34% used, resets in 2h 13m; weekly 58% used, 3% in deficit, runs out in 2d 19h. Codex Plus: 12% and 41%. Cursor Pro: 62% of total usage.">
-      <img class="for-light" src="assets/panel-light.webp?v=2" width="400" height="603" loading="lazy" decoding="async" alt="The OpenTokenUsage panel. Claude Max: session 34% used, resets in 2h 13m; weekly 58% used, 3% in deficit, runs out in 2d 19h. Codex Plus: 12% and 41%. Cursor Pro: 62% of total usage.">
+      <img class="for-dark" src="assets/panel-dark.webp?v=3" width="400" height="640" fetchpriority="high" decoding="async" alt="The OpenTokenUsage panel. Claude Max: session 34% used, resets in 2h 13m; weekly 58% used, 3% in deficit, runs out in 2d 19h; two live Claude Code sessions, one working, one waiting. Codex Plus: 12% and 41%, one session working. Cursor Pro below.">
+      <img class="for-light" src="assets/panel-light.webp?v=3" width="400" height="640" loading="lazy" decoding="async" alt="The OpenTokenUsage panel. Claude Max: session 34% used, resets in 2h 13m; weekly 58% used, 3% in deficit, runs out in 2d 19h; two live Claude Code sessions, one working, one waiting. Codex Plus: 12% and 41%, one session working. Cursor Pro below.">
     </figure>
   </div>
 
@@ -255,7 +258,7 @@
 
 <section id="glance" class="wrap" aria-labelledby="glance-title">
   <h2 id="glance-title"><span class="sent">The top number is your session.</span> <span class="sent">The bottom one is your week.</span></h2>
-  <p class="intro">Turn on the taskbar strip (experimental) in Settings and each provider you pick gets a logo and two numbers. Open the panel for the rest.</p>
+  <p class="intro">The taskbar strip (experimental, on from the start) gives each provider you pick a logo and two numbers. Open the panel for the rest.</p>
   <div class="anatomy">
     <div class="slab" role="img" aria-label="Claude in the taskbar strip: 34% of the session limit and 58% of the weekly limit used">
       <span class="si big"><span class="pi p-claude"></span><span class="nums"><span class="u34">34%</span><span class="u58">58%</span></span></span>
@@ -263,8 +266,8 @@
     <dl class="defs">
       <div><dt>Top number</dt><dd>The session limit, the one that resets every few hours.</dd></div>
       <div><dt>Bottom number</dt><dd>The weekly limit.</dd></div>
-      <div><dt>Color</dt><dd>Starts in the taskbar's text color and warms up to yellow, orange and red as you use more.</dd></div>
-      <div><dt>Logo</dt><dd>Which provider. Up to 6, in the order you choose.</dd></div>
+      <div><dt>Color</dt><dd>The taskbar's text color on a new install. Pick a scale in Settings and it warms up to yellow, orange and red as you use more.</dd></div>
+      <div><dt>Logo</dt><dd>Which provider. Up to 6, in the order you choose. A dot on it while its agent works (green) or waits for you (yellow).</dd></div>
     </dl>
   </div>
 
@@ -285,7 +288,7 @@
     <li><div><p class="rt">Usage levels</p><p class="rd">A notification at the levels you pick, for every provider or each on its own, once per limit until it resets. The bars show a notch at each level.</p></div><span class="val">80% and 95% by default</span></li>
     <li><div><p class="rt">Pace and resets</p><p class="rd">When you're on pace to run out before a reset, and when a limit you'd nearly used up resets. A weekly limit's pace can count work days only.</p></div></li>
     <li><div><p class="rt">Sounds</p><p class="rd">Windows' default, eight built-in sounds or your own file. Quiet during Do&nbsp;Not&nbsp;Disturb.</p></div></li>
-    <li><div><p class="rt">One-click fixes</p><p class="rd">Errors come with the fix: run the login command in a terminal, or open the provider's API key page and Windows' Environment Variables. A Claude or Codex card that lost its sign-in refreshes the moment you sign in again.</p></div></li>
+    <li><div><p class="rt">One-click fixes</p><p class="rd">A provider you're signed out of shows a quiet card with its sign-in button. Errors come with the fix: run the login command in a terminal, or open the provider's API key page and Windows' Environment Variables. A Claude or Codex card that lost its sign-in refreshes the moment you sign in again.</p></div></li>
     <li><div><p class="rt">Service status</p><p class="rd">A badge on the card when the provider's status page reports an incident (for providers with a public status page).</p></div></li>
   </ul>
   </div>
@@ -303,13 +306,15 @@
     <li><div><p class="rt">Monthly budgets</p><p class="rd">A project's bar turns yellow at 80% and red at 100%, with a notification at each, even with the panel closed. The list shows where the month is heading.</p></div></li>
     <li><div><p class="rt">Export CSV</p><p class="rd">Saves the month to Downloads, one row per branch.</p></div></li>
     <li><div><p class="rt">Your currency</p><p class="rd">Costs in one of 13 currencies, at a rate you enter. No exchange-rate service is contacted.</p></div></li>
+    <li><div><p class="rt">Spend summary</p><p class="rd">Under the cards: today, yesterday and the last 30 days across Claude, Codex and other CLIs' own logs, the models you used most, and, with your plan prices set, how many times its price each plan was worth.</p></div><span class="val">Claude, Codex, CLIs</span></li>
   </ul>
   </div>
   <div>
   <h3>When and how you use it</h3>
   <ul class="rows">
     <li><div><p class="rt">Usage by hour</p><p class="rd">Tokens per weekday and hour over the last 4 weeks, with your busiest hour.</p></div><span class="val">Claude, Codex</span></li>
-    <li><div><p class="rt">Live sessions</p><p class="rd">The Claude Code sessions running on this PC and what each is doing. With the Claude Code status line on, how full each context is, with a warning before it compacts.</p></div><span class="val">Claude</span></li>
+    <li><div><p class="rt">Year of use</p><p class="rd">Every day of the last year with your streaks, kept after Claude Code deletes its logs. Export daily tokens as CSV or JSON.</p></div><span class="val">Claude, Codex</span></li>
+    <li><div><p class="rt">Live sessions</p><p class="rd">The sessions running on this PC, on their cards: working or waiting for you, the time left on Claude's prompt cache, and how full each context is, with a warning before it compacts.</p></div><span class="val">Claude, Codex</span></li>
     <li><div><p class="rt">Banked resets</p><p class="rd">How many rate limit resets you hold, what each one clears and when it expires, with reminders 7 days and 24 hours before.</p></div><span class="val">Claude, Codex</span></li>
     <li><div><p class="rt">Cache hit rate</p><p class="rd">How much of the last 30 days came from the prompt cache.</p></div><span class="val">Claude, Codex</span></li>
   </ul>
@@ -326,7 +331,7 @@
       <ul class="rows">
         <li><div><p class="rt">Tray icon</p><p class="rd">The app icon, a percent (colored by pace if you like), bars, or one number or logo ring per provider.</p></div></li>
         <li><div><p class="rt">Taskbar strip</p><p class="rd">Logos with session and weekly numbers inside the taskbar, in your fonts, sizes, colors and order, beside the tray or on the other side, on one monitor or all of them.</p></div><span class="val">Up to 6</span></li>
-        <li><div><p class="rt">The panel</p><p class="rd">Open it from the tray, the strip or a global shortcut. Pin it above other windows, or turn on Remember position and it opens wherever you drag it.</p></div></li>
+        <li><div><p class="rt">The panel</p><p class="rd">Opens in the corner of the screen from the tray, the strip or a global shortcut. Pin it above other windows, drag an edge to widen it, or drag it anywhere and it opens there next time.</p></div></li>
         <li><div><p class="rt">Auto refresh</p><p class="rd">Smart checks every 2 minutes while your usage moves and slows down to 15 when it doesn't. Or pick a fixed interval.</p></div><span class="val">5 to 60 min</span></li>
       </ul>
     </div>
@@ -334,8 +339,22 @@
   </div>
 </section>
 
+<section id="desktop" class="wrap" aria-labelledby="desktop-title">
+  <h2 id="desktop-title">On your desktop too</h2>
+  <p class="intro">Settings → Taskbar &amp; desktop puts the strip's providers on the desktop, in the same look.</p>
+  <img class="shot wide" src="assets/desktop.webp?v=1" width="960" height="500" loading="lazy" decoding="async" alt="A widget with Claude, Codex and Cursor side by side with usage bars, the same stacked, and a rail on the screen's right edge with today's tokens and spend, a usage ring per provider and the live token rate, above a Windows 11 taskbar.">
+  <div class="groups desk-rows">
+  <ul class="rows">
+    <li><div><p class="rt">Desktop widgets</p><p class="rd">Side by side, stacked, one per provider or each in turn. Drag them anywhere; they snap to screen edges and to each other, can stay on top, lock in place or let clicks pass through, and hide while a full-screen app is in front.</p></div></li>
+  </ul>
+  <ul class="rows">
+    <li><div><p class="rt">Screen-edge rail</p><p class="rd">Today's tokens and spend, each provider in a ring filled as far as its usage, and the live token rate, tucked against the right, left or top edge until the pointer comes near.</p></div></li>
+  </ul>
+  </div>
+</section>
+
 <section id="providers" class="wrap" aria-labelledby="providers-title">
-  <h2 id="providers-title">Works with 19 providers</h2>
+  <h2 id="providers-title">Works with 25 providers</h2>
   <p class="intro">On first start the app turns on the ones it finds you signed in to. The rest, Muse Code included, wait in Settings. Each provider is a small plugin, and new ones arrive with app updates.</p>
   <ul class="providers">
     <li><span class="pi p-claude"></span><div><p class="pn">Claude</p><p class="pt">Session, weekly, Fable, extra usage, rate limit resets, local token usage (ccusage)</p></div></li>
@@ -357,6 +376,12 @@
     <li><span class="pi p-muse"></span><div><p class="pn">Muse Code</p><p class="pt">Session, weekly. Off until you turn it on</p></div></li>
     <li><span class="pi p-openrouter"></span><div><p class="pn">OpenRouter</p><p class="pt">Credits, API key spending cap, daily and monthly spend</p></div></li>
     <li><span class="pi p-deepseek"></span><div><p class="pn">DeepSeek</p><p class="pt">API balance</p></div></li>
+    <li><span class="pi p-codebuff"></span><div><p class="pn">Codebuff</p><p class="pt">Credits, weekly limit</p></div></li>
+    <li><span class="pi p-kilo"></span><div><p class="pn">Kilo</p><p class="pt">Credits, Kilo Pass month</p></div></li>
+    <li><span class="pi p-kimi-api"></span><div><p class="pn">Kimi API</p><p class="pt">API balance, vouchers, cash</p></div></li>
+    <li><span class="pi p-qwen-code"></span><div><p class="pn">Qwen Code</p><p class="pt">Requests today and this month, from the CLI's own ledger</p></div></li>
+    <li><span class="pi p-ollama"></span><div><p class="pn">Ollama</p><p class="pt">Installed and loaded models on this PC</p></div></li>
+    <li><span class="pi p-custom-balance"></span><div><p class="pn">Custom balances</p><p class="pt">New API, One API, Sub2API or your own endpoint, set up in Settings</p></div></li>
   </ul>
   <p class="more">Missing one? Write a plugin with the <a href="https://github.com/PowerUserZ/OpenTokenUsage/blob/main/docs/plugins/api.md">Plugin API</a> and open a pull request.</p>
   <p class="fine">Not affiliated with any of these providers. Names and logos belong to their owners.</p>
@@ -366,9 +391,22 @@
 <section id="windows" aria-labelledby="windows-title">
   <h2 id="windows-title">At home on Windows 11</h2>
   <ul class="rows flat">
-    <li><div><p class="rt">Mica and your accent color</p><p class="rd">The panel takes Windows' backdrop and your accent color.</p></div></li>
+    <li><div><p class="rt">Mica and your accent color</p><p class="rd">The panel takes Windows' backdrop and your accent color, or Glass blurs the desktop behind it.</p></div></li>
     <li><div><p class="rt">Dark and light</p><p class="rd">A pure black dark theme and a light one.</p></div></li>
-    <li><div><p class="rt">11 languages</p><p class="rd">English, <span lang="de">Deutsch</span>, <span lang="es">Español</span> (<span lang="es">España</span> and <span lang="es">Latinoamérica</span>), <span lang="fr">Français</span>, <span lang="it">Italiano</span>, <span lang="ja">日本語</span>, <span lang="ko">한국어</span>, <span lang="pt-BR">Português (Brasil)</span>, <span lang="tr">Türkçe</span> and <span lang="zh-Hans">简体中文</span>.</p></div></li>
+    <li><div><p class="rt">11 languages</p><p class="rd">It follows Windows' language unless you pick one.</p>
+      <ul class="langs" aria-label="Languages">
+        <li><img src="assets/flags/us.svg" width="24" height="18" alt=""><span lang="en">English</span></li>
+        <li><img src="assets/flags/de.svg" width="24" height="18" alt=""><span lang="de">Deutsch</span></li>
+        <li><img src="assets/flags/es.svg" width="24" height="18" alt=""><span lang="es">Español <small>España</small></span></li>
+        <li><img src="assets/flags/mx.svg" width="24" height="18" alt=""><span lang="es">Español <small>Latinoamérica</small></span></li>
+        <li><img src="assets/flags/fr.svg" width="24" height="18" alt=""><span lang="fr">Français</span></li>
+        <li><img src="assets/flags/it.svg" width="24" height="18" alt=""><span lang="it">Italiano</span></li>
+        <li><img src="assets/flags/jp.svg" width="24" height="18" alt=""><span lang="ja">日本語</span></li>
+        <li><img src="assets/flags/kr.svg" width="24" height="18" alt=""><span lang="ko">한국어</span></li>
+        <li><img src="assets/flags/br.svg" width="24" height="18" alt=""><span lang="pt-BR">Português <small>Brasil</small></span></li>
+        <li><img src="assets/flags/tr.svg" width="24" height="18" alt=""><span lang="tr">Türkçe</span></li>
+        <li><img src="assets/flags/cn.svg" width="24" height="18" alt=""><span lang="zh-Hans">简体中文</span></li>
+      </ul></div></li>
     <li><div><p class="rt">Follows the taskbar</p><p class="rd">Tray icons and the strip switch between light and dark the moment the taskbar does.</p></div></li>
     <li><div><p class="rt">More than one login</p><p class="rd">A second Claude or Codex account gets its own card, and so does a different login inside a running WSL distro.</p></div></li>
     <li><div><p class="rt">Settings backup</p><p class="rd">Export your settings to a file and import them on another PC. Logins stay where they are.</p></div></li>
@@ -380,7 +418,8 @@
   <ul class="rows flat">
     <li><div><p class="rt">No telemetry</p><p class="rd">The app sends no analytics. Usage goes from each provider to your PC and nowhere else. Besides the providers you turn on, it contacts only their status pages, GitHub for updates, and npm for ccusage, which prices Claude and Codex logs.</p></div></li>
     <li><div><p class="rt">Local HTTP API</p><p class="rd">On by default: other apps on your PC can <a href="https://github.com/PowerUserZ/OpenTokenUsage/blob/main/docs/local-http-api.md">read your usage</a>. Loopback only; browsers are refused.</p></div><span class="val">127.0.0.1:6736</span></li>
-    <li><div><p class="rt">Proxy</p><p class="rd">Route provider requests through a SOCKS5 or HTTP proxy, set in a <a href="https://github.com/PowerUserZ/OpenTokenUsage/blob/main/docs/proxy.md">config file</a>.</p></div></li>
+    <li><div><p class="rt">Hide from screen sharing</p><p class="rd">The panel and the widgets stay out of screen shares, recordings and screenshots.</p></div></li>
+    <li><div><p class="rt">Proxy</p><p class="rd">Route provider, status page and update requests through an HTTP, HTTPS or SOCKS5 proxy, set in Settings → App (<a href="https://github.com/PowerUserZ/OpenTokenUsage/blob/main/docs/proxy.md">details</a>).</p></div></li>
     <li><div><p class="rt">Updates</p><p class="rd">Checks for a new release every 15 minutes and downloads it. It installs quietly, without admin rights, when you click Restart to update, and the panel opens again.</p></div></li>
     <li><div><p class="rt">Open source</p><p class="rd">MIT licensed. Every line is <a href="https://github.com/PowerUserZ/OpenTokenUsage">on GitHub</a>.</p></div></li>
   </ul>
@@ -393,7 +432,7 @@
     <li><div><h3 class="rt">How do I see my Claude Code usage limits on Windows?</h3><p class="rd">Install OpenTokenUsage and stay signed in to Claude Code. The app uses Claude Code's existing login, so there's no API key to set up, and shows your 5-hour session limit and weekly limit next to the clock, with reset times, pace and extra usage. Its detail page adds what each project costs and when in the week you use it.</p></div></li>
     <li><div><h3 class="rt">How do I check my Codex usage limits?</h3><p class="rd">Sign in to Codex as usual. OpenTokenUsage reads that login and shows the 5-hour and weekly limits, the code review limit, credits and banked resets, and can warn you before you run out.</p></div></li>
     <li><div><h3 class="rt">Is there a CodexBar for Windows?</h3><p class="rd">CodexBar and OpenUsage live in the macOS menu bar. OpenTokenUsage does the same job in the Windows 11 notification area: it's built on OpenUsage, inspired by CodexBar, and made for Windows.</p></div></li>
-    <li><div><h3 class="rt">Which AI coding tools does it track?</h3><p class="rd">Claude, Codex, GitHub Copilot, Cursor, Antigravity, JetBrains AI Assistant, Devin, Kiro, OpenCode Go, Z.ai, Kimi Code, Factory (Droid), MiniMax, Grok, Amp, Synthetic, Muse Code, OpenRouter and DeepSeek. Each one is a plugin, and new ones arrive with app updates.</p></div></li>
+    <li><div><h3 class="rt">Which AI coding tools does it track?</h3><p class="rd">Claude, Codex, GitHub Copilot, Cursor, Antigravity, JetBrains AI Assistant, Devin, Kiro, OpenCode Go, Z.ai, Kimi Code, Kimi API, Factory (Droid), MiniMax, Grok, Amp, Synthetic, Muse Code, OpenRouter, DeepSeek, Codebuff, Kilo, Qwen Code, Ollama, and API balances from New API, One API, Sub2API or your own endpoint. Each one is a plugin, and new ones arrive with app updates.</p></div></li>
     <li><div><h3 class="rt">Can it warn me before I hit a limit?</h3><p class="rd">Yes. It notifies you at the usage levels you pick (80% and 95% by default, or your own for each provider), when you're on pace to run out before the reset, and when a limit resets, with a sound of your choice.</p></div></li>
     <li><div><h3 class="rt">Does it send my usage or logins anywhere?</h3><p class="rd">No. There's no account and no telemetry. Your logins stay on your PC, and the app talks only to the providers you turn on, their status pages, and GitHub for updates. For Claude and Codex costs it runs ccusage, which Bun or Node.js downloads from npm.</p></div></li>
     <li><div><h3 class="rt">Why does Windows warn me about the installer?</h3><p class="rd">The installer isn't code-signed, so a setup downloaded in the browser gets a Microsoft Defender SmartScreen warning: choose More info, then Run anyway. winget and the app's own updates don't show it. The app installs for your Windows user only, so it never asks for admin rights.</p></div></li>

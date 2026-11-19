@@ -219,6 +219,12 @@ h3 { font: 600 0.875rem/1.4 var(--f-text); margin: 40px 0 12px; }
 .p-amp { --brand: #F34E3F; --icon: url(providers/amp.svg); }
 .p-antigravity { --brand: #4285F4; --icon: url(providers/antigravity.svg); }
 .p-claude { --brand: #DE7356; --icon: url(providers/claude.svg); }
+.p-codebuff { --brand: #16A34A; --icon: url(providers/codebuff.svg); }
+.p-custom-balance { --brand: #2D9CFF; --icon: url(providers/custom-balance.svg); }
+.p-kilo { --brand: #F7C948; --icon: url(providers/kilo.svg); }
+.p-kimi-api { --icon: url(providers/kimi-api.svg); }
+.p-ollama { --icon: url(providers/ollama.svg); }
+.p-qwen-code { --brand: #615CED; --icon: url(providers/qwen-code.svg); }
 .p-codex { --icon: url(providers/codex.svg); } /* white on dark, black on light, as in the app */
 .p-copilot { --brand: #A855F7; --icon: url(providers/copilot.svg); }
 .p-cursor { --icon: url(providers/cursor.svg); }
@@ -238,6 +244,8 @@ h3 { font: 600 0.875rem/1.4 var(--f-text); margin: 40px 0 12px; }
 /* 3:1 on the light taskbar (#E4E4E4) and the page */
 [data-theme="light"] .p-claude { --brand: #C6664D; }
 [data-theme="light"] .p-kiro { --brand: #9578C6; }
+[data-theme="light"] .p-kilo { --brand: #8A6A00; }
+[data-theme="light"] .p-custom-balance { --brand: #0058C8; }
 /* Contrast themes paint backgrounds as Canvas, which would erase the mask icons */
 @media (forced-colors: active) {
   .pi { forced-color-adjust: none; background: CanvasText; }
@@ -289,6 +297,14 @@ main section:not(.hero) { padding-top: var(--section); }
 
 .yours-grid { display: grid; gap: 40px; }
 .shot { border-radius: 8px; }
+.shot.wide { width: 100%; margin-top: 32px; border: 1px solid var(--frame); }
+.desk-rows { margin-top: 24px; }
+
+/* Languages: a flag beside each name, in the name's own language */
+.langs { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(10.5rem, 1fr)); gap: 8px 16px; margin-top: 8px; }
+.rows .langs li { display: flex; align-items: center; gap: 10px; padding: 4px 0; border: 0; background: none; font-size: 0.9375rem; }
+.langs img { width: 24px; height: 18px; border-radius: 2px; box-shadow: 0 0 0 1px var(--line); }
+.langs small { color: var(--muted); font-size: 0.8125rem; }
 
 .providers { list-style: none; padding: 0; display: grid; margin-top: 32px; }
 .providers li {
@@ -399,7 +415,7 @@ button.link { padding: 0; border: 0; background: none; color: inherit; font: inh
 @media (min-width: 1024px) and (max-height: 800px) {
   .hero-top { padding-top: 16px; grid-template-columns: minmax(0, 1fr) auto; }
   .flyout { width: auto; } /* the image's set height sizes it, loaded or not */
-  .flyout img { width: auto; max-width: none; height: clamp(420px, 100svh - 134px, 603px); }
+  .flyout img { width: auto; max-width: none; height: clamp(420px, 100svh - 134px, 640px); }
 }
 
 @media (min-width: 1152px) {
